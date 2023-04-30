@@ -107,7 +107,7 @@ const Navbar = () => {
               <Link href="/Allprojects">
               <li className="py-4 text-sm"> Donate Now </li>
             </Link>
-              <Link href="/">
+              <Link href="/Orgform">
                 <li className="py-4 text-sm"> Contact </li>
               </Link>
             </ul>
