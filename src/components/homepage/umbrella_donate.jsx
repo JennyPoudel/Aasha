@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-function Umbrella_donate() {
+function Umbrella_donate() { 
+
   return (
     <div className="relative box-border w-full h-[51.81rem] text-[1.88rem] text-slategray-100 border-[1px] border-solid border-whitesmoke">
       {/* Image */}
