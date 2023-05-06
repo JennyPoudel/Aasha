@@ -29,7 +29,7 @@ const Navbar = () => {
             
           
               <li className="ml-10 text-sm uppercase hover:border-b text-[#0A5F7E]">
-                <Link href = "/">About</Link>
+                <Link href = "/About">About</Link>
               </li>
             
 
