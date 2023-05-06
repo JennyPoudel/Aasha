@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Navbar from 'src/components/homepage/nav';
 import DropdownMenu from 'src/components/homepage/dropdown';
 import Link from 'next/link';
+import FileUploadForm from '../components/homepage/FileUploadForm';
 function Orgform() {
   return (
     <div>
@@ -101,12 +102,8 @@ function Orgform() {
         />
       </div>
     
-      <input
-        className="absolute top-[44.47rem] left-[7.84rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black"
-        type="file"
-        required
-      />
-      <div className="absolute top-[42.06rem] left-[7.80rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
+      <FileUploadForm/>
+      <div className="absolute top-[42.06rem] left-[7rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
         PROFILE PICTURE
       </div>
       <div className="absolute top-[60rem] left-[6.44rem] w-[30.13rem] h-[4.81rem] overflow-hidden text-[0.75rem] font-noto-sans">

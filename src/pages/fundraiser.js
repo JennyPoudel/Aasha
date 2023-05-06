@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "src/components/homepage/nav";
 import RadioComponent from "src/components/homepage/RadioComponent";
 import Link from "next/link";
+import FileUploadFormIndividual from "../components/homepage/FileUploadFormIndividual";
 const IndividualForm = () => {
   return (
     <>
@@ -83,12 +84,8 @@ const IndividualForm = () => {
         />
       </div>
      
-      <input
-        className="absolute top-[47.47rem] left-[7.38rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black"
-        type="file"
-        required
-      />
-      <div className="absolute top-[45.06rem] left-[7.38rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
+     <FileUploadFormIndividual/>
+      <div className="absolute top-[45.06rem] left-[7rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
         PROFILE PICTURE
       </div>
      
