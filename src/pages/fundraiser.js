@@ -1,8 +1,8 @@
 
 import React from "react";
 import Image from "next/image";
-import Navbar from "@/components/homepage/nav";
-import RadioComponent from "@/components/homepage/RadioComponent";
+import Navbar from "src/components/homepage/nav";
+import RadioComponent from "src/components/homepage/RadioComponent";
 import Link from "next/link";
 const IndividualForm = () => {
   return (

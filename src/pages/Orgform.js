@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
-import Navbar from '@/components/homepage/nav';
-import DropdownMenu from '@/components/homepage/dropdown';
+import Navbar from 'src/components/homepage/nav';
+import DropdownMenu from 'src/components/homepage/dropdown';
 import Link from 'next/link';
 function Orgform() {
   return (

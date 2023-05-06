@@ -1,4 +1,4 @@
-import SignMeUp from '@/components/homepage/signMeup';
+import SignMeUp from 'src/components/homepage/signMeup';
 import React from 'react'
 
 function SignUpIndividual() {
