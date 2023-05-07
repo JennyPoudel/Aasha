@@ -5,7 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import connectMongo from '../../../../connection/conn'
 import Users from '../../../../model/Schema'
 import { compare } from 'bcryptjs';
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+//import { MongoDBAdapter } from "next-auth/mongodb-adapter"
 import clientPromise from "./lib/mongodb"
 
 export const authOptions: NextAuthOptions = {
@@ -19,10 +19,10 @@ export const authOptions: NextAuthOptions = {
    
     CredentialsProvider({
       name : "Credentials",
-      // credentials: {
-      //   username: { label: "Username", type: "text", placeholder: "jsmith" },
-      //   password: { label: "Password", type: "password" },
-      // },
+       credentials: {
+         username: { label: "Username", type: "text" },
+         password: { label: "Password", type: "password" },
+       },
       async authorize(credentials, req){
           connectMongo().catch(error => { error: "Connection Failed...!"})
           
@@ -46,8 +46,9 @@ export const authOptions: NextAuthOptions = {
       }
       }),
     ],
-    // session: {
-    //   jwt: true,
+  //    session: {
+  //      jwt: true,
+  // },
     //   encode: async ({ secret, token, maxAge }) => {
     //     const encodedToken = encode(token, secret)
     //     return encodedToken
@@ -56,6 +57,7 @@ export const authOptions: NextAuthOptions = {
     //     const decodedToken = decode(token, secret)
     //     return decodedToken
     //   }
+      secret: process.env.SECRET,
       callbacks:{
       async jwt({ token, user }) {
        return {...token, ...user}
