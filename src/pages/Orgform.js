@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Navbar from 'src/components/homepage/nav';
 import DropdownMenu from 'src/components/homepage/dropdown';
 import Link from 'next/link';
-import RadioComponent from '../components/homepage/RadioComponent';
-import DropdownForFundraiser from '../components/homepage/DropdownForFundraiser'
+
+import DropdownForCategory from '../components/homepage/DropdownForCategory'
 
 //import FileUploadForm from '../components/homepage/FileUploadForm';
 function Orgform() {
@@ -161,9 +161,7 @@ function Orgform() {
             placeholder="Phone2"
           />
         </div>
-        <div className='ml-[5rem]'>
-          <RadioComponent/>
-        </div>
+        
       </div>
       <div className="absolute top-[67.63rem] left-[1.56rem] w-[40.69rem] h-[47.72rem] font-noto-sans">
         <div className="absolute top-[0rem] left-[0rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue">
@@ -199,7 +197,7 @@ function Orgform() {
             />
           </div>
         </div>
-        <DropdownForFundraiser/>
+        <DropdownForCategory/>
       </div>
       <div className="absolute top-[118.31rem] left-[1.56rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue font-noto-sans">
         <div className="absolute top-[0.08rem] left-[0.08rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
