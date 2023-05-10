@@ -1,9 +1,73 @@
-import React from 'react'
-import Image from 'next/image';
-import Navbar from '@/components/homepage/nav';
-function Orgform() {
+import React from "react";
+import Image from "next/image";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Navbar from "@/components/homepage/nav";
+const Orgform = () => {
+  const [OrgName, setOrgName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact1, setContact1] = useState("");
+  const [contact2, setContact2] = useState("");
+  const [state, setState] = useState("");
+  const [municipality, setMunicipality] = useState("");
+  const [country, setCountry] = useState("");
+  const [district, setDistrict] = useState("");
+  const [image, setImage] = useState(null);
+  const [imageInput, setImageInput] = useState(null);
+  const [imagee, setImagee] = useState(null);
+  const [imageeInput, setImageeInput] = useState(null);
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    setImageInput(file);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setImage(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+  const handleImagee = (e) => {
+    const file = e.target.files[0];
+    setImageeInput(file);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setImagee(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+  
+  const router = useRouter();
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/api/orgform", {
+        email,
+        OrgName,
+        contact1,
+        contact2,
+        state,
+        municipality,
+        country,
+        district,
+        image,
+        imagee,
+
+
+      });
+      console.log(res.data);
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while saving your information.');
+    }
+  }
   return (
+
     <div>
+    <form onSubmit={handleSubmit}>
+
       <Navbar/>
       <div className="relative bg-whitesmoke w-full h-[83.94rem] overflow-hidden text-left text-[0.72rem] text-black font-paragraph-ibm-plex-sans-medium">
       <Image
@@ -22,6 +86,8 @@ function Orgform() {
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="text"
           placeholder="Name"
+          value={OrgName}
+          onChange={(e) => setOrgName(e.target.value)}
         />
       </div>
       <div className="absolute h-[4.09%] w-[20.3%] top-[32.39%] right-[70.88%] bottom-[63.52%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -32,6 +98,8 @@ function Orgform() {
           className="[border:none] font-paragraph-ibm-plex-sans-medium text-[0.72rem] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="email"
           placeholder="E-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className="absolute w-[14.24%] top-[calc(50%_-_333.68px)] right-[60.42%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -42,6 +110,8 @@ function Orgform() {
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="number"
           placeholder="Phone2"
+          value={contact2}
+          onChange={(e) => setContact2(e.target.value)}
         />
       </div>
       <div className="absolute w-[13.47%] top-[calc(50%_-_333.68px)] right-[77.71%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -52,6 +122,8 @@ function Orgform() {
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="number"
           placeholder="Phone"
+          value={contact1}
+          onChange={(e) => setContact1(e.target.value)}
         />
       </div>
       <div className="absolute h-[4.1%] w-[14.24%] top-[38.94%] right-[60.42%] bottom-[56.96%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -62,6 +134,8 @@ function Orgform() {
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="text"
           placeholder="Bagmati"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
         />
       </div>
       <div className="absolute w-[18.26%] top-[calc(50%_-_58.68px)] right-[56.39%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -71,6 +145,8 @@ function Orgform() {
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="text"
+          value={municipality}
+          onChange={(e) => setMunicipality(e.target.value)}
         />
       </div>
       <div className="absolute h-[4.1%] w-[13.89%] top-[38.94%] right-[77.29%] bottom-[56.96%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -81,6 +157,8 @@ function Orgform() {
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="text"
           placeholder="Nepal"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
         />
       </div>
       <div className="absolute w-[13.89%] top-[calc(50%_-_60.68px)] right-[77.29%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -91,9 +169,11 @@ function Orgform() {
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="text"
           placeholder="Kathmandu"
+          value={district}
+          onChange={(e) => setDistrict(e.target.value)}
         />
       </div>
-      <div className="absolute top-[42.94rem] left-[7.94rem] w-[20.2rem] h-[1.75rem] overflow-hidden text-[0.75rem] font-noto-sans">
+      {/* <div className="absolute top-[42.94rem] left-[7.94rem] w-[20.2rem] h-[1.75rem] overflow-hidden text-[0.75rem] font-noto-sans">
         <div className="absolute top-[0.06rem] left-[0.06rem] leading-[0.75rem] inline-block w-[10rem] h-[1.72rem]">
           Organization Objective
         </div>
@@ -101,12 +181,11 @@ function Orgform() {
       <textarea
         className="bg-[transparent] absolute top-[45.23rem] left-[7.91rem] rounded-smi-5 shadow-[0px_1.999999761581421px_2px_rgba(0,_0,_0,_0.25),_0px_1.999999761581421px_2px_rgba(0,_0,_0,_0.25)] box-border w-[32.86rem] h-[5.16rem] border-[0.5px] border-solid border-dimgray-100"
         placeholder="Write the objective of your organization"
-      />
-      <input
-        className="absolute top-[54.47rem] left-[7.84rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black"
-        type="file"
-        required
-      />
+      /> */}
+      <div className="absolute top-[54.47rem] left-[7.84rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black">
+           {image && <img src={image} style={{ width: "400px" }} />}
+          <input type="file" onChange={handleImage} />
+       </div>
       <div className="absolute top-[52.06rem] left-[8.38rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
         PROFILE PICTURE
       </div>
@@ -126,11 +205,14 @@ function Orgform() {
           </div>
         </div>
       </div>
-      <input
-        className="absolute top-[54.47rem] left-[25.72rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black"
+      <div className="absolute top-[54.47rem] left-[25.72rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black">
+      {imagee && <img src={imagee} style={{ width: "400px" }} />}
+<input
         type="file"
-        required
+                onChange={handleImagee}
+
       />
+</div>
       <div className="absolute top-[52.06rem] left-[26.25rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
         VALIDATION DOCUMENT
       </div>
@@ -144,6 +226,7 @@ function Orgform() {
         </div>
       </button>
     </div>
+    </form>
   </div>
   )
 }

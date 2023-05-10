@@ -1,18 +1,11 @@
 import mongoose from "mongoose";
 
-const individualSchema = new mongoose.Schema({
+const organizationschema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
   },
-  firstName:{
-    type: String,
-    required: true,
-  },
-  middleName:{
-    type: String,
-  },
-  lastName:{
+  OrgName:{
     type: String,
     required: true,
   },
@@ -39,10 +32,6 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // dob: {
-  //   type: Date,
-  //   required: true,
-  // },
   image: {
     type: String,
     required: true,
@@ -51,15 +40,8 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
 });
 
-let Individual;
+const Organization = mongoose.model("Organization", organizationschema);
 
-try {
-  Individual = mongoose.model("Individual");
-} catch (error) {
-  Individual = mongoose.model("Individual", individualSchema);
-}
-
-export default Individual;
+export default Organization;
