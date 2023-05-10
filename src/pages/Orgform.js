@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Navbar from "@/components/homepage/nav";
 const Orgform = () => {
   const [OrgName, setOrgName] = useState("");
   const [email, setEmail] = useState("");
@@ -68,7 +67,7 @@ const Orgform = () => {
     <div>
     <form onSubmit={handleSubmit}>
 
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className="relative bg-whitesmoke w-full h-[83.94rem] overflow-hidden text-left text-[0.72rem] text-black font-paragraph-ibm-plex-sans-medium">
       <Image
         className="absolute top-[15.63rem] left-[49.5rem] w-[40.5rem] h-[68.31rem] object-cover"

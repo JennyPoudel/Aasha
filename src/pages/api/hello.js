@@ -27,7 +27,7 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  municipality: {
+  id: {
     type: String,
     required: true,
   },
