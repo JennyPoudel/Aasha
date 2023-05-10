@@ -14,10 +14,9 @@ const IndividualForm = () => {
   const [contact1, setContact1] = useState("");
   const [contact2, setContact2] = useState("");
   const [state, setState] = useState("");
-  const [municipality, setMunicipality] = useState("");
+  const [id, setID] = useState("");
   const [country, setCountry] = useState("");
   const [district, setDistrict] = useState("");
-  // const [dob, setDOB] = useState("");
   const [image, setImage] = useState(null);
   const [imageInput, setImageInput] = useState(null);
   const [imagee, setImagee] = useState(null);
@@ -57,7 +56,7 @@ const IndividualForm = () => {
         contact1,
         contact2,
         state,
-        municipality,
+        id,
         country,
         district,
         image,
@@ -142,10 +141,10 @@ const IndividualForm = () => {
         </div>
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
+          type="number"
           required
-          value={municipality}
-          onChange={(e) => setMunicipality(e.target.value)}
+          value={id}
+          onChange={(e) => setID(e.target.value)}
         />
       </div>
       <div className="absolute h-[4.1%] w-[13.89%] top-[38.94%] right-[77.29%] bottom-[56.96%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -220,7 +219,7 @@ const IndividualForm = () => {
           </div>
         </div>
       </button>
-      </Link>
+      {/* </Link> */}
       <div className="absolute h-[4.09%] w-[20.3%] top-[13.48%] right-[71.3%] bottom-[82.43%] left-[8.4%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
         <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
           First Name
@@ -259,8 +258,9 @@ const IndividualForm = () => {
       <div className="absolute h-[6.3%] w-[20.3%] top-[19%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
         <RadioComponent/>
       </div>
-   
+   </div>
     </>
+    
     </form>
   );
 };

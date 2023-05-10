@@ -101,11 +101,11 @@ const Orgform = () => {
     <Navbar/>
     <div className="relative bg-whitesmoke-200 w-full h-[156.19rem] overflow-hidden text-left text-[0.94rem] text-black font-paragraph-ibm-plex-sans-medium">
       <Image
-        className="absolute top-[8.13rem] left-[45.69rem] w-[46.88rem] h-[148.06rem] object-cover"
+        className="absolute top-[15.63rem] left-[49.5rem] w-[40.5rem] h-[68.31rem] object-cover"
         alt=""
-        src="/../public/assets/thuloimg.png"
-        width = '750'
-        height = '2369'
+        src="/../public/assets/handy.png"
+        width = '648'
+        height = '1093'
       />
         
       <div className="absolute top-[9.56rem] left-[2rem] w-[41.88rem] h-[54.88rem]">
@@ -379,13 +379,12 @@ const Orgform = () => {
       <button className="cursor-pointer [border:none] p-0 bg-[#64abd3] absolute top-[142.56rem] left-[15rem] w-[10.75rem] h-[3.14rem] flex flex-col items-start justify-start rounded-md">
         <div className="self-stretch rounded-[6.41px] bg-text-link h-[3.21rem] overflow-hidden shrink-0 flex flex-col py-[0.27rem] px-[1.07rem] box-border items-center justify-center">
           <div className="overflow-hidden flex flex-row items-center justify-start">
-            <div className="self-stretch relative text-[1.2rem] font-medium font-paragraph-ibm-plex-sans-medium text-text-primary-white text-center flex items-center justify-center">
-              Submit
+            <div className="self-stretch relative text-[0.8rem] font-medium font-paragraph-ibm-plex-sans-medium text-text-primary-white text-center flex items-center justify-center">
+              Next
             </div>
           </div>
         </div>
       </button>
-      
     </div>
     </form>
     </>
