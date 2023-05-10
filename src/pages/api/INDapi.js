@@ -14,9 +14,6 @@ import mongoose from 'mongoose';
   
         console.log(req.body);
 
-        
-
-        
         IND.create({Title,FirstName,LastName,ProvinceNo,District,City,EmailAddress,PhoneNumber,FundraiserStory,ProfilePicture, SocialmediaLinks,ValidationDocuments}, function(err, data){
             if(err) return res.status(404).json({ err });
             return res.status(201).json({ status : true, user: data})

@@ -1,15 +1,103 @@
 import React from 'react'
 import Image from 'next/image';
 import Navbar from 'src/components/homepage/nav';
-import DropdownMenu from 'src/components/homepage/dropdown';
-import Link from 'next/link';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
-import DropdownForCategory from '../components/homepage/DropdownForCategory'
 
-//import FileUploadForm from '../components/homepage/FileUploadForm';
-function Orgform() {
+const Orgform = () => {
+  const [OrgName, setOrganizationName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact1, setContact1] = useState("");
+  const [contact2, setContact2] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
+  const [district, setDistrict] = useState("");
+  const [orgweb, setWebsite] = useState("");
+  const [regno, setRegistrationNumber] = useState("");
+  const [doe, setDOE] = useState("");
+  const [profile, setProfile] = useState(null);
+  const [profileInput, setProfileInput] = useState(null);
+  const [valid, setValid] = useState(null);
+  const [validInput, SetValidInput] = useState(null);
+  const [title, setTitle] = useState("");
+  const [cover, setCover] = useState(null);
+  const [coverInput, setCoverInput] = useState(null);
+  // const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [cardnum, setCardNumber] = useState("");
+  const [cardholder, setCardHolder] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    setProfileInput(file);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setProfile(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+  const handleImagee = (e) => {
+    const file = e.target.files[0];
+    SetValidInput(file);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setValid(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+  const handleImageee = (e) => {
+    const file = e.target.files[0];
+    setCoverInput(file);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setCover(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+  
+  
+  const router = useRouter();
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/api/orgform", {
+        email,
+        OrgName,
+        contact1,
+        contact2,
+        state,
+        country,
+        district,
+        orgweb,
+        regno,
+        doe,
+        profile,
+        valid,
+        title,
+        cover,
+        description,
+        cardnum,
+        cardholder,
+        amount,
+
+      });
+      console.log(res.data);
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while saving your information.');
+    }
+  }
   return (
+
     <>
+    <form onSubmit={handleSubmit}>
     <Navbar/>
     <div className="relative bg-whitesmoke-200 w-full h-[156.19rem] overflow-hidden text-left text-[0.94rem] text-black font-paragraph-ibm-plex-sans-medium">
       <Image
@@ -31,6 +119,8 @@ function Orgform() {
                 className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
                 type="text"
                 placeholder="Name"
+                value={OrgName}
+          onChange={(e) => setOrganizationName(e.target.value)}
               />
             </div>
           </div>
@@ -42,6 +132,8 @@ function Orgform() {
               className="[border:none] font-paragraph-ibm-plex-sans-medium text-[0.94rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
               type="email"
               placeholder="E-mail"
+              value={email}
+          onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="absolute top-[25.13rem] left-[-1.25rem] flex flex-col p-[0.63rem] items-start justify-start">
@@ -51,8 +143,10 @@ function Orgform() {
               </div>
               <input
                 className="[border:none] font-paragraph-ibm-plex-sans-medium text-[0.94rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
-                type="email"
-                placeholder="E-mail"
+                type="text"
+                placeholder="Social handle/Website"
+                value={orgweb}
+          onChange={(e) => setWebsite(e.target.value)}
               />
             </div>
           </div>
@@ -66,19 +160,26 @@ function Orgform() {
           <div className="absolute top-[0rem] left-[0rem] w-[38.44rem] h-[18.81rem]">
             <div className="absolute top-[0rem] left-[0rem] w-[26.25rem] h-[2.28rem] overflow-hidden" />
             <div className="absolute top-[5.25rem] left-[-0.69rem] w-[38.41rem] h-[18.47rem] font-noto-sans">
-              <input
-                className="absolute top-[1.88rem] left-[-0.04rem] rounded-[16.25px] border-black box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200"
-                type="file"
-                required
-              />
+              <div className="absolute top-[1.88rem] left-[-0.04rem] rounded-[16.25px] border-black box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200">
+              {profile && <img src={profile} style={{ width: "400px" }} />}
+<input
+        type="file"
+                onChange={handleImage}
+
+      />
+                </div>
               <div className="absolute top-[0rem] left-[0rem] leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem]">
                 Profile Picture
               </div>
-              <input
-                className="absolute top-[1.88rem] left-[21.83rem] rounded-[16.25px] border-black box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200"
-                type="file"
-                required
-              />
+              <div
+                className="absolute top-[1.88rem] left-[21.83rem] rounded-[16.25px] border-black box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200">
+                {valid && <img src={valid} style={{ width: "400px" }} />}
+<input
+        type="file"
+                onChange={handleImagee}
+
+      />
+                </div>
               <div className="absolute top-[0rem] left-[21.88rem] leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem">
                 Validation Document
               </div>
@@ -92,6 +193,9 @@ function Orgform() {
                   className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
                   type="text"
                   placeholder="Nepal"
+                  value={country}
+          onChange={(e) => setCountry(e.target.value)}
+
                 />
               </div>
               <div className="w-[12.5rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
@@ -102,6 +206,8 @@ function Orgform() {
                   className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
                   type="text"
                   placeholder="Kathmandu"
+                  value={district}
+          onChange={(e) => setDistrict(e.target.value)}
                 />
               </div>
               <div className="w-[12.5rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
@@ -112,6 +218,8 @@ function Orgform() {
                   className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
                   type="text"
                   placeholder="Bagmati"
+                  value={state}
+          onChange={(e) => setState(e.target.value)}
                 />
               </div>
             </div>
@@ -122,9 +230,9 @@ function Orgform() {
                 </div>
                 <input
                   className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
-                  type="number"
-                  placeholder="Phone2"
-                />
+                  type="date"
+                  value={doe}
+                  onChange={(e) => setDOE(e.target.value)}                />
               </div>
               <div className="absolute w-[45.13%] top-[calc(50%_-_34.57px)] right-[54.87%] left-[0%] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
                 <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
@@ -133,8 +241,8 @@ function Orgform() {
                 <input
                   className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
                   type="number"
-                  placeholder="Phone"
-                />
+                  value={regno}
+                  onChange={(e) => setRegistrationNumber(e.target.value)}                />
               </div>
             </div>
           </div>
@@ -149,6 +257,8 @@ function Orgform() {
             className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
             type="number"
             placeholder="Phone"
+            value={contact1}
+          onChange={(e) => setContact1(e.target.value)}
           />
         </div>
         <div className="w-[12.5rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
@@ -159,6 +269,8 @@ function Orgform() {
             className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
             type="number"
             placeholder="Phone2"
+            value={contact2}
+          onChange={(e) => setContact2(e.target.value)}
           />
         </div>
         
@@ -170,17 +282,26 @@ function Orgform() {
           </div>
         </div>
         <div className="absolute top-[10.25rem] left-[0rem] w-[16.54rem] h-[18.1rem]">
-          <input
-            className="absolute top-[2.13rem] left-[-0.04rem] rounded-[16.25px] border-black box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200"
-            type="file"
-            required
-          />
+          <div
+            className="absolute top-[2.13rem] left-[-0.04rem] rounded-[16.25px] border-black box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200">
+            {cover && <img src={cover} style={{ width: "400px" }} />}
+<input
+        type="file"
+                onChange={handleImageee}
+
+      />
+         </div>
           <div className="absolute top-[0rem] left-[0rem] leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem]">
             Cover image
           </div>
         </div>
         <div className="absolute top-[29.87rem] left-[0rem] w-[40.41rem] h-[17.84rem]">
-          <textarea className="bg-whitesmoke-100 absolute top-[1.88rem] left-[-0.04rem] rounded-[16.25px] box-border w-[40.49rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200" />
+          <textarea className="bg-whitesmoke-100 absolute top-[1.88rem] left-[-0.04rem] rounded-[16.25px] box-border w-[40.49rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200" 
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        
           <div className="absolute top-[0rem] left-[0rem] leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem]">
             Description
           </div>
@@ -193,11 +314,14 @@ function Orgform() {
             <input
               className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
               type="text"
-              placeholder="Name"
-            />
+              placeholder="Title for your page"
+              value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+            
           </div>
         </div>
-        <DropdownForCategory/>
+        {/* <DropdownForCategory/> */}
       </div>
       <div className="absolute top-[118.31rem] left-[1.56rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue font-noto-sans">
         <div className="absolute top-[0.08rem] left-[0.08rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
@@ -212,8 +336,10 @@ function Orgform() {
           </div>
           <input
             className="[border:none] bg-[transparent] absolute top-[1.63rem] left-[0.69rem] w-[17.06rem] h-[3.19rem] overflow-hidden"
-            type="text"
+            type="number"
             placeholder="Enter Amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
           />
         </div>
         <div className="absolute top-[0rem] left-[0rem] w-[40.19rem] h-[4.81rem]">
@@ -223,8 +349,11 @@ function Orgform() {
           </div>
           <input
             className="[border:none] font-medium font-inter text-[0.88rem] bg-[transparent] absolute top-[2.44rem] left-[1.74rem] leading-[124.5%] text-slateblue-100 text-left inline-block w-[19.85rem]"
-            type="text"
-            placeholder="pin"
+            type="number"
+            placeholder="*******************"
+            value={cardnum}
+          onChange={(e) => setCardNumber(e.target.value)}
+      
           />
         </div>
         <div className="absolute top-[6.88rem] left-[0rem] w-[40.19rem] h-[4.81rem]">
@@ -232,7 +361,9 @@ function Orgform() {
             className="[border:none] bg-ghostwhite absolute top-[1.31rem] left-[0rem] rounded-lg w-[40.19rem] h-[3.5rem]"
             type="text"
             placeholder="Card holder name"
-          />
+            value={cardholder}
+          onChange={(e) => setCardHolder(e.target.value)}
+        />
           <div className="absolute top-[0rem] left-[0rem] leading-[124.5%] inline-block w-[8.68rem]">
             Card Holder
           </div>
@@ -256,7 +387,7 @@ function Orgform() {
       </button>
       
     </div>
-
+    </form>
     </>
   )
 }

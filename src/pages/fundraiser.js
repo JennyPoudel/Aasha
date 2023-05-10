@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Navbar from "@/components/homepage/nav";
+import Navbar from 'src/components/homepage/nav';
 const IndividualForm = () => {
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
@@ -256,18 +256,9 @@ const IndividualForm = () => {
         />
       </div>
 
-      <div className="absolute h-[4.09%] w-[20.3%] top-[19%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Middle Name
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          value={middleName}
-          onChange={(e) => setMiddleName(e.target.value)}
-        />
+      <div className="absolute h-[6.3%] w-[20.3%] top-[19%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
+        <RadioComponent/>
       </div>
-    </div>
    
     </>
     </form>

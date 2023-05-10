@@ -20,10 +20,6 @@ const organizationschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  municipality: {
-    type: String,
-    required: true,
-  },
   country: {
     type: String,
     required: true,
@@ -32,16 +28,61 @@ const organizationschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
+  orgweb: {
     type: String,
     required: true,
   },
-  imagee: {
+  regno: {
+    type: String,
+    required: true,
+  },
+  doe: {
+    type: String,
+    required: true,
+  },
+  profile: {
+    type: String,
+    required: true,
+  },
+  valid: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  cover: {
+    type: String,
+    required: true,
+  },
+  // category: {
+  //   type: String,
+  //   required: true,
+  // },
+  description: {
+    type: String,
+    required: true,
+  },
+  cardnum: {
+    type: String,
+    required: true,
+  },
+  cardholder: {
+    type: String,
+    required: true,
+  },
+  amount: {
     type: String,
     required: true,
   },
 });
+let Organization;
 
-const Organization = mongoose.model("Organization", organizationschema);
+try {
+  Organization = mongoose.model("Organization");
+} catch (error) {
+  Organization = mongoose.model("Organization", organizationschema);
+}
 
 export default Organization;
