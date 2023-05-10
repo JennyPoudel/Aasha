@@ -5,7 +5,8 @@ function Midsection() {
   return (
     <div>
       {/*father div*/}
-      <div className="absolute top-[80.1rem] left-[11rem] box-border w-[61.5rem] h-[28.2rem] text-[1.05rem] text-darkslategray-400 font-open-sans border-[1px] border-solid border-whitesmoke  lg:flex">
+      <div className="absolute top-[80.1rem] left-[11rem] box-border w-[61.5rem] h-[28.2rem] 
+       text-[1.05rem] text-darkslategray-400 font-open-sans border-[1px] border-solid border-whitesmoke  lg:flex">
         <div className="absolute top-[4.53rem] left-[13.25rem] w-[16.56rem] h-[23.75rem]">
           <Image
             className="absolute top-[0rem] left-[0.6rem] w-[12rem] h-[12rem] overflow-hidden object-cover"
@@ -61,7 +62,7 @@ function Midsection() {
             funding, to build new skills, and to make important connections.
           </div>
         </div>
-        <div className="absolute top-[-3.79rem] left-[21.5rem] w-[20.69rem] h-[6.13rem] text-[3.38rem] text-darkslategray-100 font-roboto">
+        <div className="absolute top-[-3.79rem] left-[21.5rem] w-[20.69rem] h-[6.13rem] text-[3.38rem]  bg-white text-darkslategray-100 font-roboto">
           <div className="absolute top-[0.5rem] left-[-0.06rem] tracking-[0.96px] leading-[2.76rem]">
             How It Works
           </div>

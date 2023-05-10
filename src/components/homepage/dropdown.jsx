@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 
 const provinces = [
-  "Province 1",
-  "Province 2",
-  "Province 3",
-  "Province 4",
-  "Province 5",
-  "Province 6",
-  "Province 7"
+  "Profit",
+  "Non-Profit",
 ];
 
 const DropdownMenu = () => {
@@ -24,7 +19,7 @@ const DropdownMenu = () => {
   };
 
   return (
-    <div className="relative inline-block text-left top-[23rem] left-[2rem]">
+    <div className="relative inline-block text-left top-[17.8rem] left-[36.2rem]">
       <div>
         <button
           type="button"
@@ -34,7 +29,7 @@ const DropdownMenu = () => {
           aria-expanded={isMenuOpen}
           onClick={toggleMenu}
         >
-          {selectedProvince ? selectedProvince : "Select Province"}
+          {selectedProvince ? selectedProvince : "Organization Type"}
           <svg
             className="w-5 h-5 ml-2 -mr-1 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
