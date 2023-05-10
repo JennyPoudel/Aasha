@@ -99,7 +99,7 @@ const IndividualForm = () => {
       </div>
       <div className="absolute w-[14.24%] top-[calc(50%_-_321.5px)] right-[60.42%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
         <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Contact 2
+          D.O.B
         </div>
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
@@ -111,7 +111,7 @@ const IndividualForm = () => {
       </div>
       <div className="absolute w-[13.47%] top-[calc(50%_-_321.5px)] right-[78.13%] left-[8.4%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
         <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Contact 1
+          Phone No.
         </div>
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
@@ -138,7 +138,7 @@ const IndividualForm = () => {
       </div>
       <div className="absolute w-[18.26%] top-[calc(50%_-_58.68px)] right-[56.39%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
         <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Municipality/Sub-municipality
+          National I.D
         </div>
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
@@ -215,11 +215,12 @@ const IndividualForm = () => {
         <div className="self-stretch rounded-[4.28px] bg-text-link h-[2.14rem] shrink-0 overflow-hidden flex flex-col py-[0.18rem] px-[0.71rem] box-border items-center justify-center">
           <div className="overflow-hidden flex flex-row items-center justify-start">
             <div className="self-stretch relative text-[0.8rem] font-medium font-paragraph-ibm-plex-sans-medium text-text-primary-white text-center flex items-center justify-center">
-              Next
+            Next
             </div>
           </div>
         </div>
       </button>
+      </Link>
       <div className="absolute h-[4.09%] w-[20.3%] top-[13.48%] right-[71.3%] bottom-[82.43%] left-[8.4%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
         <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
           First Name
@@ -246,8 +247,8 @@ const IndividualForm = () => {
       </div>
       
       <div className="absolute h-[4.09%] w-[20.3%] top-[13.48%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Fundraiser Title
+      <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+          Middle Name
         </div>
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"

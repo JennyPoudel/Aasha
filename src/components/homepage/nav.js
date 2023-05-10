@@ -29,7 +29,7 @@ const Navbar = () => {
             
           
               <li className="ml-10 text-sm uppercase hover:border-b text-[#0A5F7E]">
-                <Link href = "/">About</Link>
+                <Link href = "/About">About</Link>
               </li>
             
 
@@ -98,16 +98,16 @@ const Navbar = () => {
               <Link href="/">
                 <li className="py-4 text-sm"> About </li>
               </Link>
-              <Link href="/">
+              <Link href="/fundraiser">
                 <li className="py-4 text-sm"> Start a fundraiser </li>
               </Link>
-              <Link href="/">
+              <Link href="/Orgform">
                 <li className="py-4 text-sm "> Join as a partner </li>
               </Link>
-              <Link href="/">
+              <Link href="/Allprojects">
               <li className="py-4 text-sm"> Donate Now </li>
             </Link>
-              <Link href="/">
+              <Link href="/Orgform">
                 <li className="py-4 text-sm"> Contact </li>
               </Link>
             </ul>

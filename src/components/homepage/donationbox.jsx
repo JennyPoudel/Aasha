@@ -1,5 +1,8 @@
 import React from 'react'
 import Image from 'next/image';
+import Link from 'next/link';
+import {useRouter} from "next/router";
+
 function Donationbox() {
   return (
     <>
@@ -32,12 +35,19 @@ function Donationbox() {
 
 
             <div className="absolute top-[16rem] left-[56.44rem] w-[13.81rem] h-[2.88rem]">
-              <button className="cursor-pointer [border:none] p-0 bg-[#8ab61e] absolute top-[0rem] left-[6.3rem] w-[7.5rem] h-[2.85rem] rounded-md">
+             
+              <button className="cursor-pointer [border:none] p-0 bg-[#8ab61e] absolute top-[0rem] left-[6.3rem] w-[7.5rem] h-[2.85rem] rounded-md"
+                //problems  here................
+              onClick={(e)=> 
+              router.push(`${router.query.fundraiserTitle}`)}>
+
                 <div className="absolute top-[0rem] left-[0rem] bg-yellowgreen-200 w-[7.5rem] h-[2.85rem]" />
                 <div className="absolute top-[0.36rem] left-[2rem] text-[0.75rem] tracking-[1.2px] leading-[1.95rem] uppercase font-roboto text-text-primary-white text-center inline-block w-[3.53rem]">
                   DONATE
                 </div>
               </button>
+            
+             
             </div>
 
 
