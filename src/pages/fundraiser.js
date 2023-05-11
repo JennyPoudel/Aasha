@@ -12,15 +12,20 @@ const IndividualForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [contact1, setContact1] = useState("");
-  const [contact2, setContact2] = useState("");
+  const [dob, setDOB] = useState("");
   const [state, setState] = useState("");
   const [id, setID] = useState("");
   const [country, setCountry] = useState("");
   const [district, setDistrict] = useState("");
-  const [image, setImage] = useState(null);
+  const [profile, setImage] = useState(null);
   const [imageInput, setImageInput] = useState(null);
-  const [imagee, setImagee] = useState(null);
+  const [valid, setImagee] = useState(null);
   const [imageeInput, setImageeInput] = useState(null);
+  const [gender, selectedGender] = useState("");
+
+  const handleOptionChange = (e) => {
+    selectedGender(e.target.value);
+  };
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -54,13 +59,14 @@ const IndividualForm = () => {
         middleName,
         lastName,
         contact1,
-        contact2,
+        gender,
         state,
+        dob,
         id,
         country,
         district,
-        image,
-        imagee,
+        profile,
+        valid,
 
       });
       console.log(res.data);
@@ -70,6 +76,7 @@ const IndividualForm = () => {
       alert('An error occurred while saving your information.');
     }
   }
+
   return (
     <form onSubmit={handleSubmit}>
     <>
@@ -102,10 +109,9 @@ const IndividualForm = () => {
         </div>
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="number"
-          placeholder="Phone2"
-          value={contact2}
-          onChange={(e) => setContact2(e.target.value)}
+          type="date"
+          value={dob}
+          onChange={(e) => setDOB(e.target.value)}  
         />
       </div>
       <div className="absolute w-[13.47%] top-[calc(50%_-_321.5px)] right-[78.13%] left-[8.4%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
@@ -176,7 +182,7 @@ const IndividualForm = () => {
       
       <div className="absolute top-[54.47rem] left-[7.84rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black">
 
-{image && <img src={image} style={{ width: "400px" }} />}
+{profile && <img src={profile} style={{ width: "400px" }} />}
 <input
         type="file"
                 onChange={handleImage}
@@ -186,7 +192,7 @@ const IndividualForm = () => {
       
       <div className="absolute top-[52.06rem] left-[8.38rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
 
-        VALIDATION DOCUMENT 
+        PROFILE PICTURE 
       </div>
       <div className="absolute top-[68.19rem] left-[6.44rem] w-[30.13rem] h-[4.81rem] overflow-hidden text-[0.75rem] font-noto-sans">
         <div className="absolute top-[1rem] left-[1.25rem] w-[32.13rem] h-[3.53rem] overflow-hidden">
@@ -200,7 +206,7 @@ const IndividualForm = () => {
         </div>
       </div>
       <div className="absolute top-[54.47rem] left-[25.72rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black">
-      {imagee && <img src={imagee} style={{ width: "400px" }} />}
+      {valid && <img src={valid} style={{ width: "400px" }} />}
 <input
         type="file"
                 onChange={handleImagee}
@@ -252,11 +258,44 @@ const IndividualForm = () => {
         <input
           className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
           type="text"
+          value={middleName}
+          onChange={(e) => setMiddleName(e.target.value)}
         />
       </div>
 
       <div className="absolute h-[6.3%] w-[20.3%] top-[19%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <RadioComponent/>
+      <div className="flex flex-col gap-4">
+      <label className="inline-flex items-center">
+        <input
+          type="radio"
+          className="form-radio text-blue-500"
+          value="Male"
+          checked={gender === "Male"}
+          onChange={handleOptionChange}
+        />
+        <span className="ml-2 text-gray-700">Male</span>
+      </label>
+      <label className="inline-flex items-center">
+        <input
+          type="radio"
+          className="form-radio text-blue-500"
+          value="Female"
+          checked={gender === "Female"}
+          onChange={handleOptionChange}
+        />
+        <span className="ml-2 text-gray-700">Female</span>
+      </label>
+      <label className="inline-flex items-center">
+        <input
+          type="radio"
+          className="form-radio text-blue-500"
+          value="Others"
+          checked={gender === "Others"}
+          onChange={handleOptionChange}
+        />
+        <span className="ml-2 text-gray-700">Others</span>
+      </label>
+    </div>
       </div>
    </div>
     </>
