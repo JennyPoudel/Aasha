@@ -5,6 +5,7 @@ import Navbar from "src/components/homepage/nav";
 import RadioComponent from "src/components/homepage/RadioComponent";
 import Link from "next/link";
 import FileUploadFormIndividual from "../components/homepage/FileUploadFormIndividual";
+import DropdownForCategoryIndividual from "../components/homepage/DropdownForCategoryIndividual";
 
 const IndividualForm = () => {
   return (
@@ -57,8 +58,8 @@ const IndividualForm = () => {
                         </div>
                         <input
                           className="[border:none] font-paragraph-ibm-plex-sans-medium text-[1rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
-                          type="email"
-                          placeholder="E-mail"
+                          type="number"
+                          
                         />
                       </div>
                     </div>
@@ -69,8 +70,8 @@ const IndividualForm = () => {
                         </div>
                         <input
                           className="[border:none] font-paragraph-ibm-plex-sans-medium text-[1rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
-                          type="email"
-                          placeholder="E-mail"
+                          type="Date"
+                          placeholder="Date"
                         />
                       </div>
                     </div>
@@ -192,6 +193,14 @@ const IndividualForm = () => {
                             />
                           </div>
                         </div>
+                        <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                          <div className="w-[12.5rem] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
+                            <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                               Gender
+                            </div>
+                            <RadioComponent/>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -199,8 +208,8 @@ const IndividualForm = () => {
               </div>
               <div className="absolute top-[45.13rem] left-[1.63rem] flex flex-col items-start justify-start gap-[0.94rem]">
                 <div className="flex flex-col items-center justify-start gap-[0.81rem] text-[1.38rem] text-midnightblue">
-                  <div className="relative w-[13.94rem] h-[2.28rem] overflow-hidden shrink-0">
-                    <div className="absolute top-[0.08rem] left-[-0.03rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
+                  <div className="relative w-[13.94rem] h-[2.28rem] overflow-hidden shrink-0 mt-[1rem]">
+                    <div className="absolute top-[1rem] left-[-0.03rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
                       Setting Up Donation
                     </div>
                   </div>
@@ -226,7 +235,11 @@ const IndividualForm = () => {
                       Cover image
                     </div>
                   </div>
-                  
+                </div>
+                <div className="flex flex-row items-start justify-start gap-[2.25rem] ml-[20rem] mt-[-19rem]">
+                  <div className="relative w-[10rem] h-[18.1rem] ml-[3.5rem] mt-[1rem]">
+                    <DropdownForCategoryIndividual/>
+                  </div>
                 </div>
                 <div className="flex flex-col items-start justify-start">
                   <div className="relative leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem] shrink-0">
@@ -271,7 +284,7 @@ const IndividualForm = () => {
                   />
                 </div>
                 <div className="absolute top-[6.88rem] left-[0rem] w-[40.19rem] h-[4.81rem]">
-                  <input
+                  <input 
                     className="[border:none] bg-ghostwhite absolute top-[1.31rem] left-[0rem] rounded-lg w-[40.19rem] h-[3.5rem]"
                     type="text"
                     placeholder="Card holder name"
