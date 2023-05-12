@@ -115,7 +115,6 @@ const IndividualForm = () => {
     }
   }
 
-
   return (
 
     <>
