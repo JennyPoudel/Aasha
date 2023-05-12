@@ -5,7 +5,12 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-
+const provinces = [
+  "Health",
+  "Education",
+  "Animals ",
+  "Infrastructure"
+];
 const Orgform = () => {
   const [OrgName, setOrganizationName] = useState("");
   const [email, setEmail] = useState("");
@@ -29,6 +34,17 @@ const Orgform = () => {
   const [cardnum, setCardNumber] = useState("");
   const [cardholder, setCardHolder] = useState("");
   const [amount, setAmount] = useState("");
+  const [selectedProvince, setSelectedProvince] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleProvinceSelect = (province) => {
+    setSelectedProvince(province);
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -85,6 +101,7 @@ const Orgform = () => {
         cardnum,
         cardholder,
         amount,
+        selectedProvince,
 
       });
       console.log(res.data);
@@ -103,7 +120,7 @@ const Orgform = () => {
       <Image
         className="absolute top-[15.63rem] left-[49.5rem] w-[40.5rem] h-[68.31rem] object-cover"
         alt=""
-        src="/../public/assets/handy.png"
+        src="/../public/assets/image6.png"
         width = '648'
         height = '1093'
       />
@@ -321,7 +338,57 @@ const Orgform = () => {
             
           </div>
         </div>
-        {/* <DropdownForCategory/> */}
+        <div className="relative inline-block text-left top-[13.8rem] left-[25.2rem]">
+      <div>
+        <button
+          type="button"
+          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          id="options-menu"
+          aria-haspopup="true"
+          aria-expanded={isMenuOpen}
+          onClick={toggleMenu}
+        >
+          {selectedProvince ? selectedProvince : "Category"}
+          <svg
+            className="w-5 h-5 ml-2 -mr-1 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 12l-5-5 1.41-1.42L10 9.17l3.59-3.59L15 7z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Dropdown menu */}
+      {isMenuOpen && (
+        <div
+          className="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="options-menu"
+        >
+          <div className="py-1" role="none">
+            {provinces.map((province) => (
+              <a
+                key={province}
+                href="#"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+                onClick={() => handleProvinceSelect(province)}
+              >
+                {province}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
       </div>
       <div className="absolute top-[118.31rem] left-[1.56rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue font-noto-sans">
         <div className="absolute top-[0.08rem] left-[0.08rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
@@ -348,8 +415,8 @@ const Orgform = () => {
             Card Number
           </div>
           <input
-            className="[border:none] font-medium font-inter text-[0.88rem] bg-[transparent] absolute top-[2.44rem] left-[1.74rem] leading-[124.5%] text-slateblue-100 text-left inline-block w-[19.85rem]"
-            type="number"
+                    className="[border:none] bg-gainsboro-200 absolute top-[1.38rem] left-[0.06rem] w-[35.13rem] h-[3.44rem]"
+                    type="number"
             placeholder="*******************"
             value={cardnum}
           onChange={(e) => setCardNumber(e.target.value)}
@@ -388,7 +455,7 @@ const Orgform = () => {
     </div>
     </form>
     </>
-  )
+  );
 }
 
 export default Orgform;

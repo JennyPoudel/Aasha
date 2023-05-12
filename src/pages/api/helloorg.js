@@ -56,10 +56,10 @@ const organizationschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // category: {
-  //   type: String,
-  //   required: true,
-  // },
+  selectedProvince: {
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,

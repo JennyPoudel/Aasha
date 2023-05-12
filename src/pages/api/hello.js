@@ -5,32 +5,19 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  firstName:{
+  fullname:{
     type: String,
     required: true,
   },
-  middleName:{
-    type: String,
-  },
-  lastName:{
+
+  nationalID: {
     type: String,
     required: true,
   },
-  contact1: {
-    type: String,
-    required: true,
-  },
-  contact2: {
-    type: String,
-  },
-  state: {
-    type: String,
-    required: true,
-  },
-  id: {
-    type: String,
-    required: true,
-  },
+  // issuedate: {
+  //   type: String,
+  //   required: true,
+  // },
   country: {
     type: String,
     required: true,
@@ -39,18 +26,74 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // dob: {
-  //   type: Date,
+  state: {
+    type: String,
+    required: true,
+  },
+  // municipality: {
+  //   type: String,
   //   required: true,
   // },
-  image: {
+  // ward: {
+  //   type: String,
+  //   required: true,
+  // },
+  dob: {
     type: String,
     required: true,
   },
-  imagee: {
+  // tempadd: {
+  //   type: String,
+  // },
+  contact1: {
     type: String,
     required: true,
   },
+  contact2: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  cover: {
+    type: String,
+    required: true,
+  },
+  profile: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  valid: {
+    type: String,
+    required: true,
+  },
+  cardnum: {
+    type: String,
+    required: true,
+  },
+  cardholder: {
+    type: String,
+    required: true,
+  },
+  amount: {
+    type: String,
+    required: true,
+  },
+  selectedProvince: {
+    type: String,
+    required: true,
+  },
+  
 
 });
 
