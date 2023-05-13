@@ -1,4 +1,5 @@
-
+//yuta Issue Date vanni field add gara, ani tala hera, radio component lai maile aafai k kaso garera halexu tyo ni milaideu, Overall 
+//yuta field add garera css matra milau date haru ko
 import React from "react";
 import Individual from "./api/hello";
 import Image from "next/image";
@@ -270,6 +271,8 @@ const IndividualForm = () => {
           </div>
         </div>
       </div>
+
+      {/* CSS milauna parni yesko ho hai, Radio Button wala yai ho */}
       <div className="absolute h-[6.3%] w-[20.3%] top-[19%] right-[51.22%] bottom-[79.45%] left-[36.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
       <div className="flex flex-col gap-4">
       <label className="inline-flex items-center">
@@ -304,6 +307,8 @@ const IndividualForm = () => {
       </label>
     </div>
       </div>
+
+      {/* end of radio button */}
       <div className="absolute top-[29.5rem] left-[1.38rem] flex flex-row items-center justify-start gap-[2.69rem]">
         <div className="w-[12.5rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
           <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
@@ -377,6 +382,8 @@ const IndividualForm = () => {
             
           </div>
         </div>
+
+        {/* category ko suru yeta bata */}
         <div className="relative inline-block text-left top-[13.8rem] left-[25.2rem]">
       <div>
         <button
@@ -429,6 +436,7 @@ const IndividualForm = () => {
       )}
     </div>
       </div>
+      {/* end of category */}
       <div className="absolute top-[118.31rem] left-[1.56rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue font-noto-sans">
         <div className="absolute top-[0.08rem] left-[0.08rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
           Banking Details

@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import Image from 'next/image';
 import Navbar from 'src/components/homepage/nav';
@@ -338,6 +340,8 @@ const Orgform = () => {
             
           </div>
         </div>
+
+{/* Yo  chai category */}
         <div className="relative inline-block text-left top-[13.8rem] left-[25.2rem]">
       <div>
         <button
@@ -390,6 +394,8 @@ const Orgform = () => {
       )}
     </div>
       </div>
+
+      {/* category yetti samma ho */}
       <div className="absolute top-[118.31rem] left-[1.56rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue font-noto-sans">
         <div className="absolute top-[0.08rem] left-[0.08rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
           Banking Details
