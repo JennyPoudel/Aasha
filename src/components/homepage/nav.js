@@ -5,6 +5,7 @@ import { useState } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import Ashalogo from "./ashalogo";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -14,12 +15,7 @@ const Navbar = () => {
   return (
     <div className="fixed w-full h-[6rem] shadow-xl z-[100] bg-white">
       <div className="flex justify-between items-center w-full h-full px-0 2xl:px-16">
-        <Image
-          src="/../public/assets/ashalogo.png"
-          alt="/"
-          width="200"
-          height="20"
-        />
+        <Ashalogo/>
         <div className="mr-5">
           <ul className="hidden md:flex">
             
