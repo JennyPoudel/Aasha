@@ -1,7 +1,34 @@
 import React from "react";
 import Image from "next/image";
+import { loadStripe } from '@stripe/stripe-js';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+
+loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
 const CampaignStoryCard = () => {
+  const router = useRouter();
+  const { success, canceled } = router.query;
+
+	useEffect(() => {
+		if (success !== undefined || canceled !== undefined) {
+			if (success) {
+				console.log(
+					'Order placed! You will receive an email confirmation.'
+				);
+			}
+
+			if (canceled) {
+				console.log(
+					'Order canceled -- continue to shop around and checkout when you’re ready.'
+				);
+			}
+		}
+	}, [success, canceled]);
+
   return (
+    <form action='/api/checkout_sessions' method='POST'>
    <>
    <div className="relative bg-whitesmoke w-full h-[132.63rem] overflow-hidden flex flex-col items-center justify-start gap-[6.56rem] text-center text-[2rem] text-black font-roboto">
       
@@ -25,7 +52,7 @@ const CampaignStoryCard = () => {
         </div>
         <button
           className="cursor-pointer [border:none] p-0 bg-[#B2BB1E] relative rounded-8xs w-[17.75rem] h-[3.75rem] shrink-0 overflow-hidden hover:bg-lightskyblue hover:shadow-[0px_4px_4px_rgba(100,_171,_211,_0.25)] hover:animate-[3s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1] rounded-md"
-          //onClick={onAashaHeading1ButtonCTAClick}
+        
         >
           <div className="absolute top-[0rem] left-[3.1rem] text-[1.5rem] tracking-[6px] leading-[1.95rem] font-roboto text-darkslategray-600 text-center inline-block w-[12.06rem]">
             Donate Now
@@ -35,6 +62,8 @@ const CampaignStoryCard = () => {
           <div className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem]" />
           <div className="absolute h-full w-full top-[0rem] left-[0rem] text-[0.75rem] font-inter text-darkslategray-700 text-center flex items-center justify-center bg-[#64abd3] rounded-md">
             FOLLOW THIS CAMPAIGN
+            
+          
           </div>
         </button>
       </div>
@@ -80,6 +109,7 @@ const CampaignStoryCard = () => {
     </div>
    
    </>
+   </form>
      )
 };
 

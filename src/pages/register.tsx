@@ -8,9 +8,8 @@ import axios from 'axios';
 
 
 const SignIn: NextPage = (props): JSX.Element => {
-  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
+  const [userInfo, setUserInfo] = useState({email: "", password: "" });
+ 
   const router = useRouter();
   const headers = {
     'Content-Type': 'application/json'
@@ -18,7 +17,7 @@ const SignIn: NextPage = (props): JSX.Element => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/api/auth/signup',userInfo, {
+      const response = await axios.post('/api/signup2',userInfo, {
       headers: headers
     }
       
@@ -91,14 +90,14 @@ const SignIn: NextPage = (props): JSX.Element => {
          
           <div class="mb-6">
             <input
-              value={userInfo.username}
+              value={userInfo.email}
               type="text"
            
               class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="exampleFormControlInput2"
               placeholder="Email address"
               onChange={({target})=>
-              setUserInfo({...userInfo,username:target.value})
+              setUserInfo({...userInfo,email:target.value})
              }
             />
             

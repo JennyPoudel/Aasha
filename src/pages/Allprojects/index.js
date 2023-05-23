@@ -4,8 +4,12 @@ import Navbar from '../../components/homepage/nav'
 import React from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+
 function Allprojects() {
   const router = useRouter();
+	
+
+  
 const handleDonate1 = () => {
   
   router.push(`/Allprojects/${router.query.fundraiserTitle}`);
@@ -13,6 +17,7 @@ const handleDonate1 = () => {
 
 
   return (
+   
     <div>
     
       <Navbar/>
@@ -112,12 +117,13 @@ const handleDonate1 = () => {
 
 
             <div className="absolute top-[16rem] left-[56.44rem] w-[13.81rem] h-[2.88rem]">
-              <button className="cursor-pointer [border:none] p-0 bg-[#8ab61e] absolute top-[0rem] left-[6.3rem] w-[7.5rem] h-[2.85rem] rounded-md">
+               <button className="cursor-pointer [border:none] p-0 bg-[#8ab61e] absolute top-[0rem] left-[6.3rem] w-[7.5rem] h-[2.85rem] rounded-md">
                 <div className="absolute top-[0rem] left-[0rem] bg-yellowgreen-200 w-[7.5rem] h-[2.85rem]" />
                 <div className="absolute top-[0.36rem] left-[2rem] text-[0.75rem] tracking-[1.2px] leading-[1.95rem] uppercase font-roboto text-text-primary-white text-center inline-block w-[3.53rem]">
                   DONATE
                 </div>
-              </button>
+              </button> 
+              
             </div>
 
 
@@ -327,6 +333,7 @@ const handleDonate1 = () => {
       <Footer/>
      
     </div>
+    
   )
 }
 

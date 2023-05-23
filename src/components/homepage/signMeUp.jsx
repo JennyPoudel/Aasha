@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import "tailwindcss/tailwind.css";
+<<<<<<< HEAD
 import Navbar from "../../components/homepage/nav";
+=======
+import Navbar from "src/components/homepage/nav";
+>>>>>>> cc7bd0b46bc9d25c83b58fa4d2174e84cac3fffb
 
 function SignMeUp() {
   const [username, setUsername] = useState("");

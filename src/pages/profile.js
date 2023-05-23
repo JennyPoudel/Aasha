@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { Session } from "next-auth"
 import Image from "next/image";
@@ -7,14 +8,17 @@ import RadioComponent from "../components/homepage/RadioComponent";
 import Link from "next/link";
 import { getSession, useSession, signOut } from "next-auth/react"
 import { useState } from "react";
+import { useRouter } from 'next/router';
 
-const IndividualForm = (session) => {
-  //const { data: session } = useSession();
-   //const session = getSession({ req });
-        if (!session) {
-          res.status(401).json({ error: 'Unauthorized' });
-          return;
-        }
+const IndividualForm = () => {
+  
+
+  const { data: session } = useSession();
+  //const session = getSession({ req });
+  //  if (!session) {
+  //     res.status(401).json({ error: 'Unauthorized' });
+  //   return;
+        //}
   const [userI, setUserI] = useState({
     FirstName: "",
     MiddleName: "",
@@ -23,10 +27,8 @@ const IndividualForm = (session) => {
     PhoneNo: "" ,
     Email:"" ,
     DOB: ""  ,
-    State: "",
-    use:useSession()
-
-        });
+    State: ""
+ });
 
 
 
@@ -36,17 +38,18 @@ const IndividualForm = (session) => {
     const response = await fetch('/api/INDapi', {
        method: 'POST',
        headers: { 'Content-Type': 'application/json'
-                  //  authorization: `bearer ${session?.user.jti}`
        },
-       body: JSON.stringify({ userI}),
+       body: JSON.stringify({userI}),
       });
           const data = await response.json();
-          console.log(data);
+          if(response.ok) console.log(data)
           if(response.ok) router.push("/newpage")
         };
 
   return (
+    
     <>
+    
     <Navbar/>
     <div className="relative bg-whitesmoke w-full h-[83.94rem] overflow-hidden text-left text-[0.72rem] text-black font-paragraph-ibm-plex-sans-medium">
       <Image
@@ -214,3 +217,5 @@ const IndividualForm = (session) => {
 };
 
 export default IndividualForm;
+
+

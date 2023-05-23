@@ -3,32 +3,30 @@ import { signIn } from "next-auth/react";
 import { FormEventHandler, useState } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import {getSession} from "next-auth/react"
 
 
 
 
 const SignIn: NextPage = (props): JSX.Element => {
-  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
+  const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const router = useRouter()
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     // validate your userinfo
     e.preventDefault();
 
     const res = await signIn("credentials", {
-      username: userInfo.username,
+      email: userInfo.email,
       password: userInfo.password,
       redirect: false,
       callbackUrl:"/profile"
     });
     console.log(res);
     if(res.ok) router.push(res.url)
+    const session=await getSession();
+    console.log({session})
   };
-  async function handleGoogleSignin() {
-    signIn('google',{callbackUrl:"http://localhost:3000/GSpage"})
-  }
-  async function handleGithubSignin(){
-    signIn('github',{callbackUrl:"http://localhost:3000/GSpage"})
-  }
+  
 
 
  
@@ -54,7 +52,7 @@ const SignIn: NextPage = (props): JSX.Element => {
             <p class="text-lg mb-0 mr-4">Sign in with</p>
             <button
               type="button"
-              onClick={handleGoogleSignin}
+             // onClick={handleGoogleSignin}
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
               class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
@@ -71,7 +69,7 @@ const SignIn: NextPage = (props): JSX.Element => {
 
             <button
               type="button"
-              onClick={handleGithubSignin}
+            //  onClick={handleGithubSignin}
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
               class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
@@ -98,14 +96,14 @@ const SignIn: NextPage = (props): JSX.Element => {
          
           <div class="mb-6">
             <input
-              value={userInfo.username}
+              value={userInfo.email}
               type="text"
             
               class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="exampleFormControlInput2"
               placeholder="Email address"
               onChange={({target})=>
-              setUserInfo({...userInfo,username:target.value})
+              setUserInfo({...userInfo,email:target.value})
              }
             />
             

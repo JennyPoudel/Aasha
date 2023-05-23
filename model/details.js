@@ -1,8 +1,10 @@
-import Users from "model/schema"
+
 const mongoose = require('mongoose');
 
-const Info = mongoose.Schema({
-   
+
+import { Schema, model, models } from 'mongoose';
+//import FormI from 'model/formSchema'
+const Detailtable = new Schema({
     FirstName: {
         type: String
     },
@@ -28,6 +30,10 @@ const Info = mongoose.Schema({
         type: String
     }
     
-});
+   
+})
 
-module.exports =Info
+const Detail = models.Detail || model('Details', Detailtable);
+
+export default Detail;
+

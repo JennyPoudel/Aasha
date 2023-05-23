@@ -12,14 +12,14 @@ import mongoose from 'mongoose';
     if(req.method === 'POST'){
 
         if(!req.body) return res.status(404).json({ error: "Don't have form data...!"});
-        const {FirstName,MiddleName,LastName,PhoneNo,DOB,Email,State,District,user} = req.body;
+        const {FirstName,MiddleName,LastName,PhoneNo,DOB,Email,State,District} = req.body;
   
         console.log(req.body);
 
         
 
         
-        Information.create({FirstName,MiddleName,LastName,PhoneNo,DOB,Email,State,District,user}, function(err, data){
+        Information.create({FirstName,MiddleName,LastName,PhoneNo,DOB,Email,State,District}, function(err, data){
             if(err) return res.status(404).json({ err });
             return res.status(201).json({ status : true, user: data})
             

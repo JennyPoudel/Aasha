@@ -1,4 +1,4 @@
-import SignMeUp from '@/components/homepage/signMeUp'
+import SignMeUp from 'src/components/homepage/signMeUp'
 import React from 'react'
 
 function SignUpOrg() {

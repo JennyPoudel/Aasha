@@ -1,6 +1,6 @@
-import connectMongo from '../../../../connection/conn';
-import UsersL from '../../../../model/login'
-import { hash } from 'bcryptjs';
+import connectMongo from '../../../connection/conn';
+import UsersL from '../../../model/login'
+
 import mongoose from 'mongoose';
 export default async function handler(req, res){
     mongoose.set("strictQuery", false);
@@ -10,10 +10,12 @@ export default async function handler(req, res){
     if(req.method === 'POST'){
 
         if(!req.body) return res.status(404).json({ error: "Don't have form data...!"});
-        const {email, password } = req.body;
+        const { email, password } = req.body;
         console.log(req.body)
 
-      
+        // // check duplicate users
+        // const checkexisting = await Users.findOne({ username });
+        // if(checkexisting) return res.status(422).json({ message: "User Already Exists...!"});
 
         // hash password
         UsersL.create({email,password : await hash(password, 12)}, function(err, data){
@@ -23,7 +25,7 @@ export default async function handler(req, res){
         })
 
     } else{
-       return  res.status(500).json({ message: "HTTP method not valid only POST Accepted"})
+        res.status(500).json({ message: "HTTP method not valid only POST Accepted"})
     }
     
 
