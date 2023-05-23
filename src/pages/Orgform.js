@@ -3,14 +3,10 @@ import Image from 'next/image';
 import Navbar from 'src/components/homepage/nav';
 import DropdownMenu from 'src/components/homepage/dropdown';
 import Link from 'next/link';
-<<<<<<< HEAD
-import FileUploadForm from '../components/homepage/FileUploadForm';
-=======
 
 import DropdownForCategory from '../components/homepage/DropdownForCategory'
 
 //import FileUploadForm from '../components/homepage/FileUploadForm';
->>>>>>> 8a50882cf73c4c82e6b19eeb40927f54bcf10285
 function Orgform() {
   return (
     <>
@@ -23,103 +19,6 @@ function Orgform() {
         width = '750'
         height = '2369'
       />
-<<<<<<< HEAD
-      
-      <div className="absolute h-[4.62%] w-[31.39%] top-[12.62%] right-[59.79%] bottom-[76.77%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Organization Name
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          placeholder="Name"
-        />
-
-      </div>
-      <div className="absolute h-[4.09%] w-[20.3%] top-[26.70%] right-[70.88%] bottom-[63.52%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Email
-        </div>
-        <input
-          className="[border:none] font-paragraph-ibm-plex-sans-medium text-[0.72rem] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="email"
-          placeholder="E-mail"
-        />
-      </div>
-      <div className="absolute w-[14.24%] top-[20%] right-[60.42%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Contact
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="number"
-          placeholder="Phone2"
-        />
-      </div>
-      <div >
-        <DropdownMenu/>
-      </div>
-     
-      <div className="absolute w-[13.47%] top-[20%] right-[77.71%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Established Date
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="Date"
-          placeholder=""
-        />
-      </div>
-      <div className="absolute h-[4.1%] w-[14.24%] top-[34.94%] right-[60.42%] bottom-[56.96%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          State
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          placeholder="Bagmati"
-        />
-      </div>
-      <div className="absolute w-[18.26%] top-[42%] right-[56.39%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Organization Registration No.
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-        />
-      </div>
-      <div className="absolute h-[4.1%] w-[13.89%] top-[34.94%] right-[77.29%] bottom-[56.96%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Country
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          placeholder="Nepal"
-        />
-      </div>
-      <div className="absolute w-[13.89%] top-[42%] right-[77.29%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[150%]">
-          District
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          placeholder="Kathmandu"
-        />
-      </div>
-    
-      <FileUploadForm/>
-      <div className="absolute top-[42.06rem] left-[7rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
-        PROFILE PICTURE
-      </div>
-      <div className="absolute top-[60rem] left-[6.44rem] w-[30.13rem] h-[4.81rem] overflow-hidden text-[0.75rem] font-noto-sans">
-        <div className="absolute top-[1rem] left-[1.25rem] w-[32.13rem] h-[3.53rem] overflow-hidden">
-          <div className="absolute top-[0rem] left-[0rem] w-[32.13rem] h-[2.59rem] flex flex-col items-start justify-start gap-[0.25rem]">
-            <div className="self-stretch relative leading-[0.56rem]">
-              SOCIAL MEDIA LINK
-=======
         
       <div className="absolute top-[9.56rem] left-[2rem] w-[41.88rem] h-[54.88rem]">
         <div className="absolute top-[0rem] left-[0rem] w-[43.19rem] h-[29.38rem]">
@@ -138,7 +37,6 @@ function Orgform() {
           <div className="absolute h-[14.04%] w-[98.73%] top-[28.3%] right-[2.72%] bottom-[57.66%] left-[-1.45%] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
             <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
               Email
->>>>>>> 8a50882cf73c4c82e6b19eeb40927f54bcf10285
             </div>
             <input
               className="[border:none] font-paragraph-ibm-plex-sans-medium text-[0.94rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
