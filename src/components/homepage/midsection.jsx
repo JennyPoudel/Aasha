@@ -1,3 +1,4 @@
+//midsection.js
 import React from "react";
 import Image from "next/image";
 
@@ -6,7 +7,7 @@ function Midsection() {
     <div>
       {/*father div*/}
       <div className="absolute top-[80.1rem] left-[11rem] box-border w-[61.5rem] h-[28.2rem] 
-       text-[1.05rem] text-darkslategray-400 font-open-sans border-[1px] border-solid border-whitesmoke  lg:flex">
+       text-[1.05rem] text-darkslategray-400 font-open-sans border-[1px] border-solid border-white  lg:flex bg-white">
         <div className="absolute top-[4.53rem] left-[13.25rem] w-[16.56rem] h-[23.75rem]">
           <Image
             className="absolute top-[0rem] left-[0.6rem] w-[12rem] h-[12rem] overflow-hidden object-cover"
@@ -60,6 +61,15 @@ function Midsection() {
           <div className="absolute top-[13.8rem] left-[0rem] tracking-[0.19px] leading-[1.65rem] inline-block w-[13.28rem]">
             Nonprofits around the world apply and join Aasha to access more
             funding, to build new skills, and to make important connections.
+          </div>
+        </div>
+        {/*changes baby */}
+        <div className="absolute top-[-23.53rem] left-[-12rem] bg-[lightskyblue] flex flex-row py-[3.63rem] pl-[3.81rem] pr-[3.81rem] items-center justify-start gap-[2.8rem] text-[1.35rem] text-white font-roboto w-[86rem]">
+
+          <div className="relative w-[22.58rem] h-[5.4rem] shrink-0 ml-[18rem]">
+            <div className="absolute top-[0rem] left-[0rem] leading-[1.8rem] inline-block w-[40rem] text-white">
+            Aasha connects nonprofits, donors and companies in nearly every country in the world. We help fellow nonprofits access the funding, tools, training, and support they need to serve their communities.
+            </div>
           </div>
         </div>
         <div className="absolute top-[-3.79rem] left-[21.5rem] w-[20.69rem] h-[6.13rem] text-[3.38rem]  bg-white text-darkslategray-100 font-roboto">

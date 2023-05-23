@@ -1,15 +1,13 @@
+//what we do .js
+
 import React from 'react'
 import Image from 'next/image';
 function Whatwedo() {
 
-
-
-       
-     
   
   return (
     <div>
-    <div className="absolute top-[133.25rem] left-[30rem] box-border w-[34.06rem] h-[6.44rem] text-[3.38rem] text-darkslategray-100 border-[1px] border-solid border-whitesmoke ">
+    <div className="absolute top-[133.25rem] left-[30rem] box-border w-[34.06rem] h-[6.44rem] text-[3.38rem] text-darkslategray-100 bg-[white] ">
           <div className="absolute top-[0.19rem] left-[3rem] tracking-[0.96px] leading-[2.76rem] inline-block w-[33.94rem] h-[6.25rem] font-medium text:6xl ">
             What We Do
           </div>
@@ -43,7 +41,7 @@ function Whatwedo() {
 
 
 
-      <div className="absolute top-[245.84rem] left-[5.69rem] box-border w-[70.65rem] h-[43.13rem] text-left border-[1px] border-solid border-whitesmoke">
+      <div className="absolute top-[245.84rem] left-[5.69rem] box-border w-[70.65rem] h-[43.13rem] text-left bg-white">
         <Image
           className="absolute top-[0rem] left-[0rem] rounded-17xl w-[30rem] h-[43.13rem] object-cover"
           alt="/"
