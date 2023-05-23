@@ -1,221 +1,329 @@
 
-
 import React from "react";
-import { Session } from "next-auth"
 import Image from "next/image";
 import Navbar from "../components/homepage/nav";
 import RadioComponent from "../components/homepage/RadioComponent";
 import Link from "next/link";
-import { getSession, useSession, signOut } from "next-auth/react"
-import { useState } from "react";
-import { useRouter } from 'next/router';
+import FileUploadFormIndividual from "../components/homepage/FileUploadFormIndividual";
+import DropdownForCategoryIndividual from "../components/homepage/DropdownForCategoryIndividual";
 
 const IndividualForm = () => {
-  
-
-  const { data: session } = useSession();
-  //const session = getSession({ req });
-  //  if (!session) {
-  //     res.status(401).json({ error: 'Unauthorized' });
-  //   return;
-        //}
-  const [userI, setUserI] = useState({
-    FirstName: "",
-    MiddleName: "",
-    LastName: "",
-    District: "" ,
-    PhoneNo: "" ,
-    Email:"" ,
-    DOB: ""  ,
-    State: ""
- });
-
-
-
-  const handleSubmit = async (event) => {
-  
-   event.preventDefault();
-    const response = await fetch('/api/INDapi', {
-       method: 'POST',
-       headers: { 'Content-Type': 'application/json'
-       },
-       body: JSON.stringify({userI}),
-      });
-          const data = await response.json();
-          if(response.ok) console.log(data)
-          if(response.ok) router.push("/newpage")
-        };
-
   return (
-    
     <>
-    
     <Navbar/>
-    <div className="relative bg-whitesmoke w-full h-[83.94rem] overflow-hidden text-left text-[0.72rem] text-black font-paragraph-ibm-plex-sans-medium">
-      <Image
-        className="absolute top-[11.31rem] left-[49.5rem] w-[40.5rem] h-[72.63rem] object-cover"
-        alt=""
-        src="/../public/assets/bighand.png"
-        width = '648'
-        height = '1162'
-      />
-    {/* <div className="ml-auto flex gap-2">
-        {session?.user ? (
-          <>
-            <p className="text-sky-600"> {session.user._doc.username}</p>
-            <div>)} */}
-
-      <div className="absolute h-[4.09%] w-[20.3%] top-[32.39%] right-[70.88%] bottom-[63.52%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Email
-        </div>
-        <input
-          className="[border:none] font-paragraph-ibm-plex-sans-medium text-[0.72rem] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="email"
-          value={userI.Email}
-          onChange={({target})=>
-          setUserI({...userI,Email:target.value})}
-        />
-      </div>
-      <div className="absolute w-[14.24%] top-[calc(50%_-_321.5px)] right-[60.42%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          D.O.B
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="date"
-          value={userI.DOB}
-          onChange={({target})=>
-          setUserI({...userI,DOB:target.value})}
+    <div className="relative bg-whitesmoke-200 w-full h-[156.19rem] overflow-hidden text-left text-[1.13rem] text-midnightblue font-noto-sans">
+      
+      <div className="absolute top-[0rem] left-[0rem] flex flex-col items-end justify-start text-[0.94rem] text-black">
+        <header className=" box-border w-[90rem]  py-[1.25rem] pr-[0rem] pl-[1.25rem] items-center justify-start gap-[0.38rem] max-w-[87.5rem] border-[1px] border-solid border-whitesmoke-200 lg:w-[75rem] lg:max-w-[75rem] md:w-[60rem] md:pl-[1.25rem] md:pr-[20-] md:box-border md:max-w-[60rem]"/>
         
-          
-        />
-      </div>
-      <div className="absolute w-[13.47%] top-[calc(50%_-_321.5px)] right-[78.13%] left-[8.4%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          Phone No.
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="number"
-          value={userI.PhoneNo}
-          onChange={({target})=>
-          setUserI({...userI,PhoneNo:target.value})}
-        
-         
-        
-        />
-      </div>
-      <div className="absolute h-[4.1%] w-[20.24%] top-[38.94%] right-[60.42%] bottom-[56.96%] left-[9%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          State
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          value={userI.State}
-          onChange={({target})=>
-          setUserI({...userI,State:target.value})}
-        
-        />
-      </div>
-      {/* <div className="absolute w-[18.26%] top-[calc(50%_-_58.68px)] right-[56.39%] left-[25.35%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          National I.D
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          required
-        />
-      </div> */}
-     
-      <div className="absolute w-[13.89%] top-[calc(50%_-_60.68px)] right-[77.29%] left-[8.82%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[150%]">
-          District
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          value={userI.District}
-          onChange={({target})=>
-          setUserI({...userI,District:target.value})}
-        
-        />
-      </div>
-     
-      {/* <input
-        className="absolute top-[47.47rem] left-[7.38rem] rounded-smi-5 box-border w-[12.78rem] h-[12.31rem] overflow-hidden border-[0.5px] border-solid border-black"
-        type="file"
-        required
-      />
-      <div className="absolute top-[45.06rem] left-[7.38rem] text-[0.75rem] leading-[0.75rem] font-noto-sans inline-block w-[12.19rem] h-[1.5rem]">
-        PROFILE PICTURE
-      </div> */}
-     
-      <Link href = '/SignUpIndividual'>
-      <button className="cursor-pointer [border:none] p-0 bg-[#64abd3] absolute top-[63.44rem] left-[18.56rem] w-[7.17rem] h-[2.09rem] flex flex-col items-start justify-start rounded-md"
-      onClick={handleSubmit}
-      >
-        <div className="self-stretch rounded-[4.28px] bg-text-link h-[2.14rem] shrink-0 overflow-hidden flex flex-col py-[0.18rem] px-[0.71rem] box-border items-center justify-center">
-          <div className="overflow-hidden flex flex-row items-center justify-start">
-            <div className="self-stretch relative text-[0.8rem] font-medium font-paragraph-ibm-plex-sans-medium text-text-primary-white text-center flex items-center justify-center">
-            Next
+        <div className="relative w-[89.39rem] h-[148.06rem]">
+          <div className="absolute top-[3.54rem] left-[0rem] w-[43.89rem] h-[140.99rem]">
+            <div className="absolute top-[0rem] left-[0rem] w-[43.89rem] h-[135.48rem]">
+              <div className="absolute top-[0rem] left-[0rem] w-[43.89rem] h-[43.51rem] text-[1rem] font-paragraph-ibm-plex-sans-medium">
+                <div className="absolute top-[0rem] left-[0rem] w-[43.89rem] h-[18.01rem]">
+                  <div className="absolute top-[0rem] left-[0rem] overflow-hidden flex flex-row py-[0rem] px-[0.06rem] items-start justify-start text-[1.38rem] text-midnightblue font-noto-sans">
+                    <div className="relative leading-[0.98rem] font-medium h-[1rem]">
+                      Personal Details
+                    </div>
+                  </div>
+                  <div className="absolute top-[1.31rem] left-[0rem] flex flex-col p-[0.63rem] items-start justify-start text-[0.94rem]">
+                    <div className="w-[42.56rem] h-[4.06rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                      <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                        Full Name
+                      </div>
+                      <input
+                        className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                        type="text"
+                        placeholder="Name"
+                      />
+                    </div>
+                  </div>
+                  <div className="absolute top-[6.94rem] left-[0rem] flex flex-col p-[0.63rem] items-start justify-start">
+                    <div className="w-[42.64rem] h-[4.13rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                      <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                        Email
+                      </div>
+                      <input
+                        className="[border:none] font-paragraph-ibm-plex-sans-medium text-[1rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                        type="email"
+                        placeholder="E-mail"
+                      />
+                    </div>
+                  </div>
+                  <div className="absolute top-[12.63rem] left-[0rem] flex flex-row items-center justify-start gap-[0.94rem]">
+                    <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                      <div className="w-[12.5rem] h-[4.13rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                          National ID no
+                        </div>
+                        <input
+                          className="[border:none] font-paragraph-ibm-plex-sans-medium text-[1rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                          type="number"
+                          
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                      <div className="w-[12.5rem] h-[4.13rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                          Issued Date
+                        </div>
+                        <input
+                          className="[border:none] font-paragraph-ibm-plex-sans-medium text-[1rem] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                          type="Date"
+                          placeholder="Date"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute top-[21.19rem] left-[0.26rem] w-[43.38rem] h-[22.32rem] text-[0.94rem]">
+                  <div className="absolute top-[0rem] left-[0rem] flex flex-row items-end justify-start gap-[1.06rem]">
+                    <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                      <div className="w-[12.5rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                          Country
+                        </div>
+                        <input
+                          className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                          type="text"
+                          placeholder="Nepal"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                      <div className="w-[12.5rem] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
+                        <div className="self-stretch relative tracking-[0.01em] leading-[150%]">
+                          District
+                        </div>
+                        <input
+                          className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                          type="text"
+                          placeholder="Kathmandu"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                      <div className="w-[12.5rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                          State
+                        </div>
+                        <input
+                          className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                          type="text"
+                          placeholder="Bagmati"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute top-[5.63rem] left-[0rem] flex flex-col items-center justify-start">
+                    <div className="flex flex-row items-start justify-start gap-[1.06rem]">
+                      <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                        <div className="w-[12.5rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                          <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                            Municipality
+                          </div>
+                          <input
+                            className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                            type="text"
+                            placeholder="Bagmati"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                        <div className="w-[12.5rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                          <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                            Ward No
+                          </div>
+                          <input
+                            className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                            type="text"
+                            placeholder="Bagmati"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                        <div className="w-[12.5rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                          <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                            Street
+                          </div>
+                          <input
+                            className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                            type="text"
+                            placeholder="Bagmati"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative w-[42.06rem] h-[11.13rem]">
+                      <div className="absolute top-[0rem] left-[0rem] flex flex-col p-[0.63rem] items-start justify-start">
+                        <div className="w-[40.81rem] h-[4.31rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem]">
+                          <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                            Temporary Full Address (if any)
+                          </div>
+                          <input
+                            className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                            type="text"
+                            placeholder="Bagmati"
+                          />
+                        </div>
+                      </div>
+                      <div className="absolute top-[5.56rem] left-[0rem] flex flex-row items-center justify-start gap-[1.44rem]">
+                        <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                          <div className="w-[12.5rem] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
+                            <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                              Contact 1
+                            </div>
+                            <input
+                              className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                              type="number"
+                              placeholder="Phone"
+                            />
+                          </div>
+                        </div>
+                        <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                          <div className="w-[12.5rem] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
+                            <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                              Contact 2
+                            </div>
+                            <input
+                              className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                              type="number"
+                              placeholder="Phone2"
+                            />
+                          </div>
+                        </div>
+                        <div className="flex flex-col p-[0.63rem] items-start justify-start">
+                          <div className="w-[12.5rem] overflow-hidden flex flex-col items-start justify-start gap-[0.12rem]">
+                            <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                               Gender
+                            </div>
+                            <RadioComponent/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute top-[45.13rem] left-[1.63rem] flex flex-col items-start justify-start gap-[0.94rem]">
+                <div className="flex flex-col items-center justify-start gap-[0.81rem] text-[1.38rem] text-midnightblue">
+                  <div className="relative w-[13.94rem] h-[2.28rem] overflow-hidden shrink-0 mt-[1rem]">
+                    <div className="absolute top-[1rem] left-[-0.03rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
+                      Setting Up Donation
+                    </div>
+                  </div>
+                  <div className="w-[40.63rem] h-[7.18rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[0.12rem] text-[0.94rem] text-black font-paragraph-ibm-plex-sans-medium">
+                    <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
+                      Title
+                    </div>
+                    <input
+                      className="[border:none] bg-surface-light self-stretch rounded-[3.76px] flex flex-col p-[0.71rem] items-start justify-start"
+                      type="text"
+                      placeholder="Name"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-row items-start justify-start gap-[2.25rem]">
+                  <div className="relative w-[16.54rem] h-[18.1rem]">
+                    <input
+                      className="absolute top-[2.13rem] left-[-0.04rem] rounded-[16.25px] bg-lavender box-border w-[16.62rem] h-[16.01rem] overflow-hidden border-[0.6px] border-solid border-whitesmoke-200 border-black"
+                      type="file"
+                      required
+                    />
+                    <div className="absolute top-[0rem] left-[0rem] leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem]">
+                      Cover image
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-row items-start justify-start gap-[2.25rem] ml-[20rem] mt-[-19rem]">
+                  <div className="relative w-[10rem] h-[18.1rem] ml-[3.5rem] mt-[1rem]">
+                    <DropdownForCategoryIndividual/>
+                  </div>
+                </div>
+                <div className="flex flex-col items-start justify-start">
+                  <div className="relative leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem] shrink-0">
+                    Description
+                  </div>
+                  <textarea className="bg-whitesmoke-100 relative rounded-[16.25px] box-border w-[40.49rem] h-[16.01rem] overflow-hidden shrink-0 border-[0.6px] border-solid border-whitesmoke-200" />
+                </div>
+                <div className="flex flex-col items-start justify-start">
+                  <div className="relative leading-[0.98rem] inline-block w-[15.84rem] h-[1.95rem] shrink-0">
+                    Validation Document
+                  </div>
+                  <input
+                    className="relative rounded-[16.25px] bg-lavender box-border w-[16.62rem] h-[16.01rem] overflow-hidden shrink-0 border-[0.6px] border-solid border-whitesmoke-200 border-black"
+                    type="file"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="absolute top-[117.28rem] left-[1.64rem] w-[13.94rem] h-[2.28rem] overflow-hidden text-[1.38rem] text-midnightblue">
+                <div className="absolute top-[0.08rem] left-[0.08rem] leading-[0.98rem] font-medium inline-block w-[13.85rem] h-[2.23rem]">
+                  Banking Details
+                </div>
+              </div>
+              <div className="absolute top-[120.21rem] left-[1.64rem] w-[40.19rem] h-[18.81rem] text-darkslateblue-200 font-inter">
+                <div className="absolute top-[14rem] left-[0rem] w-[40.19rem] h-[4.81rem]">
+                  <input
+                    className="[border:none] bg-ghostwhite absolute top-[1.31rem] left-[0.25rem] rounded-lg w-[39.94rem] h-[3.5rem]"
+                    type="text"
+                  />
+                  <div className="absolute top-[0rem] left-[0rem] leading-[124.5%] inline-block w-[9.19rem]">
+                    Amount to be raised
+                  </div>
+                </div>
+                <div className="absolute top-[0rem] left-[0rem] w-[40.19rem] h-[4.81rem]">
+                  <div className="absolute top-[1.31rem] left-[0rem] rounded-lg bg-slateblue-200 box-border w-[40.19rem] h-[3.5rem] border-[1px] border-solid border-slateblue-100" />
+                  <div className="absolute top-[0rem] left-[0rem] leading-[124.5%] inline-block w-[9.68rem]">
+                    Card Number
+                  </div>
+                  <input
+                    className="[border:none] bg-gainsboro-200 absolute top-[1.38rem] left-[0.06rem] w-[35.13rem] h-[3.44rem]"
+                    type="text"
+                  />
+                </div>
+                <div className="absolute top-[6.88rem] left-[0rem] w-[40.19rem] h-[4.81rem]">
+                  <input 
+                    className="[border:none] bg-ghostwhite absolute top-[1.31rem] left-[0rem] rounded-lg w-[40.19rem] h-[3.5rem]"
+                    type="text"
+                    placeholder="Card holder name"
+                  />
+                  <div className="absolute top-[0rem] left-[0rem] leading-[124.5%] inline-block w-[8.68rem]">
+                    Card Holder
+                  </div>
+                </div>
+                <Image
+                  className="absolute top-[2.13rem] left-[35.67rem] w-[3.6rem] h-[1.81rem] object-cover"
+                  alt="/"
+                  src="/../public/assets/image5.png"
+                  width = '57'
+                  height = '29'
+                />
+              </div>
             </div>
           </div>
+          <button className="cursor-pointer [border:none] p-0 bg-[#64abd3] absolute top-[144.8rem] left-[15.58rem] w-[10.75rem] h-[3.14rem] flex flex-col items-start justify-start rounded-md">
+            <button className="cursor-pointer [border:none] py-[0.27rem] px-[1.07rem] bg-text-link self-stretch rounded-[6.41px] h-[3.21rem] overflow-hidden shrink-0 flex flex-col box-border items-center justify-center">
+              <div className="overflow-hidden flex flex-row items-center justify-start">
+                <div className="self-stretch relative text-[1.2rem] font-medium font-paragraph-ibm-plex-sans-medium text-text-primary-white text-center flex items-center justify-center">
+                  Submit
+                </div>
+              </div>
+            </button>
+          </button>
+          <Image
+            className="absolute top-[0rem] left-[45.08rem] w-[44.31rem] h-[148.06rem] object-cover"
+            alt=""
+            src="/../public/assets/image6.png"
+            width = '709'
+            height = '2369'
+          />
         </div>
-      </button>
-      </Link>
-      <div className="absolute h-[4.09%] w-[20.3%] top-[13.48%] right-[71.3%] bottom-[82.43%] left-[8.4%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          FirstName
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          value={userI.FirstName}
-          onChange={({target})=>
-          setUserI({...userI,FirstName:target.value})}
-        
-        />
       </div>
-      <div className="absolute h-[4.09%] w-[20.3%] top-[19.06%] right-[71.23%] bottom-[76.84%] left-[8.47%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          LastName
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          value={userI.LastName}
-          onChange={({target})=>
-          setUserI({...userI,LastName:target.value})}
-        
-        />
-      </div>
-      
-      <div className="absolute h-[4.09%] w-[20.3%] top-[13.48%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-      <div className="self-stretch relative tracking-[0.01em] leading-[144%]">
-          MiddleName
-        </div>
-        <input
-          className="[border:none] bg-surface-light self-stretch rounded-[2.89px] flex flex-col p-[0.54rem] items-start justify-start"
-          type="text"
-          value={userI.MiddleName}
-          onChange={({target})=>
-          setUserI({...userI,MiddleName:target.value})}
-        
-        />
-      </div>
-
-      {/* <div className="absolute h-[6.3%] w-[20.3%] top-[19%] right-[49.22%] bottom-[79.45%] left-[30.49%] overflow-hidden flex flex-col items-start justify-start gap-[0.09rem]">
-        <RadioComponent/>
-      </div> */}
     </div>
-   
     </>
   );
 };
 
 export default IndividualForm;
-
-
