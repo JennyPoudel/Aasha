@@ -4,6 +4,7 @@ import { FormEventHandler, useState } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Image from 'next/image'
 
 
 
@@ -17,7 +18,7 @@ const SignIn: NextPage = (props): JSX.Element => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/api/signup2',userInfo, {
+      const response = await axios.post('http://localhost:3000/api/auth/signup',userInfo, {
       headers: headers
     }
       
@@ -69,10 +70,12 @@ const SignIn: NextPage = (props): JSX.Element => {
       <div
         class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
       >
-        <img
-          src="logo.svg"
-          class="w-full"
-          alt="Sample image"
+         <Image
+          src="/../public/assets/ashalogo.png"
+         
+          alt="/"
+          width = "600"
+          height = "600"
         />
       </div>
       <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">

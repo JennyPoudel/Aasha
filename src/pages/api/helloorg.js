@@ -1,23 +1,25 @@
 import mongoose from "mongoose";
 
-const individualSchema = new mongoose.Schema({
+const organizationschema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
   },
-  fullname:{
+  OrgName:{
     type: String,
     required: true,
   },
-
-  nationalID: {
+  contact1: {
     type: String,
     required: true,
   },
-  // issuedate: {
-  //   type: String,
-  //   required: true,
-  // },
+  contact2: {
+    type: String,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
   country: {
     type: String,
     required: true,
@@ -26,34 +28,23 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  state: {
+  orgweb: {
     type: String,
     required: true,
   },
-  // municipality: {
-  //   type: String,
-  //   required: true,
-  // },
-  // ward: {
-  //   type: String,
-  //   required: true,
-  // },
-  dob: {
+  regno: {
     type: String,
     required: true,
   },
-  // tempadd: {
-  //   type: String,
-  // },
-  contact1: {
+  doe: {
     type: String,
     required: true,
   },
-  contact2: {
+  profile: {
     type: String,
     required: true,
   },
-  gender: {
+  valid: {
     type: String,
     required: true,
   },
@@ -65,15 +56,11 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profile: {
+  selectedProvince: {
     type: String,
     required: true,
   },
   description: {
-    type: String,
-    required: true,
-  },
-  valid: {
     type: String,
     required: true,
   },
@@ -89,20 +76,13 @@ const individualSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  selectedProvince: {
-    type: String,
-    required: true,
-  },
-  
-
 });
-
-let Individual;
+let Organization;
 
 try {
-  Individual = mongoose.model("Individual");
+  Organization = mongoose.model("Organization");
 } catch (error) {
-  Individual = mongoose.model("Individual", individualSchema);
+  Organization = mongoose.model("Organization", organizationschema);
 }
 
-export default Individual;
+export default Organization;

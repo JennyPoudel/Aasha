@@ -94,7 +94,7 @@ const About = () => {
               <Image
                 className="absolute top-[0rem] left-[0.12rem] w-[9.76rem] h-[13rem] object-cover"
                 alt="/"
-                src="/../public/assets/bish.png"
+                src="/../public/assets/rupak.jpg"
                 width = '156'
                 height = '207'
               />
@@ -127,7 +127,7 @@ const About = () => {
               <Image
                 className="absolute top-[0rem] left-[0.12rem] w-[9.76rem] h-[13rem] object-cover"
                 alt="/"
-                src="/../public/assets/bish.png"
+                src="/../public/assets/samip.jpg"
                 width = '156'
                 height = '207'
               />
@@ -143,7 +143,7 @@ const About = () => {
               <Image
                 className="absolute top-[0rem] left-[0.13rem] w-[9.76rem] h-[13rem] object-cover"
                 alt="/"
-                src="/../public/assets/bish.png"
+                src="/../public/assets/rishi.jpg"
                 width = '156'
                 height = '207'
               />
@@ -159,7 +159,7 @@ const About = () => {
               <Image
                 className="absolute top-[0rem] left-[0.12rem] w-[9.76rem] h-[13rem] object-cover"
                 alt="/"
-                src="/../public/assets/bish.png"
+                src="/../public/assets/jen.jpg"
                 width = '156'
                 height = '207'
               />

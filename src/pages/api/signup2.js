@@ -1,10 +1,11 @@
 import connectMongo from '../../../connection/conn';
 import UsersL from '../../../model/login'
-
+import connect from "../../../lib/mongodb";
+import { hash } from 'bcryptjs';
 import mongoose from 'mongoose';
 export default async function handler(req, res){
     mongoose.set("strictQuery", false);
-    connectMongo().catch(error => res.json({ error: "Connection Failed...!"}))
+    connect().catch(error => res.json({ error: "Connection Failed...!"}))
 
     // only post method is accepted
     if(req.method === 'POST'){

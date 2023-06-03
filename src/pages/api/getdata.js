@@ -1,6 +1,6 @@
 import connectMongo from '../../../connection/conn';
 //import FormI from '../../model/formSchema'
-import UsersL from '../../../model/login'
+import Individual from './hello'
 import mongoose from 'mongoose';
 export default async function handler (req,res){
   if (req.method!== "GET"){
@@ -9,7 +9,7 @@ export default async function handler (req,res){
   }
   try{
     await connectMongo();
-    const User= await UsersL.find();
+    const User= await Individual.find();
     res.status (200).send(User);
 
   }catch(err){

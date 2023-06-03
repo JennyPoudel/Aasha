@@ -4,7 +4,7 @@ import { FormEventHandler, useState } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import {getSession} from "next-auth/react"
-
+import Image from 'next/image'
 
 
 
@@ -19,13 +19,16 @@ const SignIn: NextPage = (props): JSX.Element => {
       email: userInfo.email,
       password: userInfo.password,
       redirect: false,
-      callbackUrl:"/profile"
+      callbackUrl:"/fundraiser"
     });
     console.log(res);
     if(res.ok) router.push(res.url)
     const session=await getSession();
     console.log({session})
   };
+  async function handleGoogleSignin() {
+    signIn('google',{callbackUrl:"http://localhost:3000/fundraiser"})
+  }
   
 
 
@@ -40,10 +43,12 @@ const SignIn: NextPage = (props): JSX.Element => {
       <div
         class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
       >
-        <img
-          src="logo.svg"
-          class="w-full"
-          alt="Sample image"
+        <Image
+          src="/../public/assets/ashalogo.png"
+         
+          alt="/"
+          width = "600"
+          height = "600"
         />
       </div>
       <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
@@ -52,7 +57,7 @@ const SignIn: NextPage = (props): JSX.Element => {
             <p class="text-lg mb-0 mr-4">Sign in with</p>
             <button
               type="button"
-             // onClick={handleGoogleSignin}
+             onClick={handleGoogleSignin}
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
               class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
@@ -67,22 +72,7 @@ const SignIn: NextPage = (props): JSX.Element => {
 
             </button>
 
-            <button
-              type="button"
-            //  onClick={handleGithubSignin}
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-            >
-             
-             
-
-              <svg xmlns="http://www.w3.org/2000/svg"  class="w-4 h-4"   >
-                <path
-                fill="currentColor"
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/> </svg>
-
-            </button>
+            
 
            
           </div>

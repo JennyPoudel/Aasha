@@ -1,28 +1,29 @@
 import NextAuth,{ NextAuthOptions }  from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import GithubProvider from 'next-auth/providers/github'
 import CredentialsProvider from "next-auth/providers/credentials";
-import connectMongo from '../../../../connection/conn'
+import GoogleProvider from 'next-auth/providers/google'
+
+import connect from "../../../../lib/mongodb";
 import UsersL from '../../../../model/login'
 import { compare } from 'bcryptjs';
 //import { MongoDBAdapter } from "next-auth/mongodb-adapter"
-import clientPromise from "./lib/mongodb"
+//import clientPromise from "./lib/mongodb"
 
 export const authOptions: NextAuthOptions = {
  // adapter: MongoDBAdapter(clientPromise),
   providers: [
-    // GoogleProvider({
-    //   clientId:process.env.GOOGLE_ID,
-    //   clientSecret:process.env.GOOGLE_SECRET,
+    GoogleProvider({
+      clientId:process.env.GOOGLE_ID,
+      clientSecret:process.env.GOOGLE_SECRET,
     
-    // }),
+    }),
+    
    
     CredentialsProvider({
       name : "Credentials",
       
       async authorize(credentials, req){
-          connectMongo().catch(error => { error: "Connection Failed...!"})
-         const {email,password}=credentials
+          connect().catch(error => { error: "Connection Failed...!"})
+         //const {email,password}=credentials
           // check user existance
           const user = await UsersL.findOne( {email :credentials.email})
           //console.log(result)
@@ -31,10 +32,10 @@ export const authOptions: NextAuthOptions = {
           }
 
           // compare()
-          const checkPassword = await compare(credentials.password, user.password);
-          console.log(checkPassword)
+          // const checkPassword = await compare(credentials.password, user.password);
+          // console.log(checkPassword)
           // incorrect password
-          if(!checkPassword || user.email !== credentials.email){
+          if(credentials.password !== user.password || user.email !== credentials.email){
               throw new Error("Username or Password doesn't match");
           }
          

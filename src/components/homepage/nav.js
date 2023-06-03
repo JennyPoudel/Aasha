@@ -35,12 +35,12 @@ const Navbar = () => {
 
             
               <li className="ml-10 text-sm uppercase hover: border-b text-[#0A5F7E]">
-              <Link href= "/fundraiser"> Start a fundraiser</Link>
+              <Link href= "/login"> Start a fundraiser</Link>
               </li>
           
             
               <li className="ml-10 text-sm uppercase hover: border-b text-[#0A5F7E]">
-              <Link href = "/Orgform"> Join as a partner</Link>
+              <Link href = "/login"> Join as a partner</Link>
               </li>
             
         
@@ -50,7 +50,11 @@ const Navbar = () => {
             
             
               <li className="ml-10 text-sm uppercase hover: border-b text-[#0A5F7E]">
-                <Link href = "/">Contact</Link>
+                <Link href = "/login">Login</Link>
+              </li>
+
+              <li className="ml-10 text-sm uppercase hover: border-b text-[#0A5F7E]">
+                <Link href = "/register">Register</Link>
               </li>
           
           </ul>
@@ -98,10 +102,10 @@ const Navbar = () => {
               <Link href="/">
                 <li className="py-4 text-sm"> About </li>
               </Link>
-              <Link href="/fundraiser">
+              <Link href="/login">
                 <li className="py-4 text-sm"> Start a fundraiser </li>
               </Link>
-              <Link href="/Orgform">
+              <Link href="/login">
                 <li className="py-4 text-sm "> Join as a partner </li>
               </Link>
               <Link href="/Allprojects">
@@ -110,6 +114,12 @@ const Navbar = () => {
               <Link href="/Orgform">
                 <li className="py-4 text-sm"> Contact </li>
               </Link>
+              <Link href="/register">
+              <li className="py-4 text-sm"> Register </li>
+            </Link> 
+            <Link href="/login">
+              <li className="py-4 text-sm"> Login </li>
+            </Link>
             </ul>
             <div className="pt-18">
               <p className="uppercase tracking-widest text-[#0A5F7E]">

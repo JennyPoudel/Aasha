@@ -1,3 +1,4 @@
+//midsection.js
 import React from "react";
 import Image from "next/image";
 
@@ -5,8 +6,8 @@ function Midsection() {
   return (
     <div>
       {/*father div*/}
-      <div className="absolute top-[80.1rem] left-[11rem] box-border w-[61.5rem] h-[28.2rem] 
-       text-[1.05rem] text-darkslategray-400 font-open-sans border-[1px] border-solid border-whitesmoke  lg:flex">
+      <div className="absolute top-[80.1rem] left-[16rem] box-border w-[61.5rem] h-[28.2rem] 
+       text-[1.05rem] text-darkslategray-400 font-open-sans border-[1px] border-solid border-white  lg:flex bg-white">
         <div className="absolute top-[4.53rem] left-[13.25rem] w-[16.56rem] h-[23.75rem]">
           <Image
             className="absolute top-[0rem] left-[0.6rem] w-[12rem] h-[12rem] overflow-hidden object-cover"
@@ -62,6 +63,17 @@ function Midsection() {
             funding, to build new skills, and to make important connections.
           </div>
         </div>
+        {/*changes baby */}
+        <div className="absolute top-[-20.53rem] left-[-16rem] bg-[lightskyblue] flex flex-row py-[3.63rem] pl-[3.81rem]
+         pr-[3.81rem]
+         items-center justify-start gap-[2.8rem] text-[1.35rem] text-white font-roboto w-[96rem]">
+
+          <div className="relative w-[22.58rem] h-[5.4rem] shrink-0 ml-[18rem]">
+            <div className="absolute top-[0rem] left-[6rem] leading-[1.8rem] inline-block w-[40rem] text-white">
+            Aasha connects nonprofits, donors and companies in nearly every country in the world. We help fellow nonprofits access the funding, tools, training, and support they need to serve their communities.
+            </div>
+          </div>
+        </div>
         <div className="absolute top-[-3.79rem] left-[21.5rem] w-[20.69rem] h-[6.13rem] text-[3.38rem]  bg-white text-darkslategray-100 font-roboto">
           <div className="absolute top-[0.5rem] left-[-0.06rem] tracking-[0.96px] leading-[2.76rem]">
             How It Works
@@ -72,10 +84,11 @@ function Midsection() {
 
 
         {/* below div: look at the bg of first div, you'll know that div is this */}
-        <div className="absolute top-[33.53rem] left-[-12rem] bg-[lightskyblue] flex flex-row py-[3.63rem] pl-[3.81rem] pr-[3.81rem] items-center justify-start gap-[2.8rem] text-[1.35rem] text-white font-roboto w-[86rem]">
+        <div className="absolute top-[33.53rem] left-[-16rem] bg-[lightskyblue] flex flex-row py-[3.63rem] 
+        pl-[3.81rem] pr-[3.81rem] items-center justify-start gap-[2.8rem] text-[1.35rem] text-white font-roboto w-[96rem]">
 
           <div className="relative w-[22.8rem] h-[3.6rem] shrink-0">
-            <div className="absolute top-[0rem] left-[0rem] leading-[1.8rem] inline-block w-[22.8rem]">
+            <div className="absolute top-[0rem] left-[1rem] leading-[1.8rem] inline-block w-[22.8rem]">
               We only accept verified and genuine projects.
             </div>
           </div>

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Head from 'next/head'
-
 import Navbar from '../components/homepage/nav'
 import { Inter } from 'next/font/google'
 import Umbrella_donate from '../components/homepage/umbrella_donate'
@@ -9,10 +8,6 @@ import Whatwedo from '../components/homepage/whatwedo'
 import Register from '../components/homepage/register'
 import { FaRegIdBadge } from 'react-icons/fa'
 import Footer from '../components/homepage/footer'
-
-
-
-
 export default function Home() {
   return (
     <>
